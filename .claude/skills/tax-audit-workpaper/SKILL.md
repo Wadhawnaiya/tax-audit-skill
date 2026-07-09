@@ -105,8 +105,9 @@ python3 scripts/render_output.py <workpaper.json> <output_dir>
 
 This produces `<client>_tax_audit_workpaper.docx` and `<client>_tax_audit_workpaper.html` — both laid out
 clause-by-clause with color-coded status badges (red = missing, amber = judgment call, grey = N/A) and a review
-summary dashboard. The script is deterministic; it does no tax reasoning of its own, so get Step 2/3 right before
-running it.
+summary dashboard. Both files automatically end with a preparer credit line (name/phone/URL, set as constants at
+the top of `render_output.py`) — nothing to add for this in the workpaper JSON. The script is deterministic; it
+does no tax reasoning of its own, so get Step 2/3 right before running it.
 
 ## Step 4 — Hand off
 
