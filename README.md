@@ -10,6 +10,36 @@ knowledge — do the first-pass document review, and the CA reviews and signs of
 automates that first pass: it doesn't file anything, generate e-filing JSON, or replace the CA's professional
 judgment and UDIN-backed signature. Every output document is explicitly labeled "for CA review before filing."
 
+## Installation
+
+This is a standard [Agent Skill](https://www.anthropic.com/news/skills) — the same `SKILL.md` format works in
+both Claude Desktop / claude.ai and Claude Code. Pick whichever you use.
+
+### Option A — Claude Desktop or claude.ai (upload the zip)
+
+1. Download **[`tax-audit-workpaper-skill.zip`](tax-audit-workpaper-skill.zip)** from this repo (or grab it from
+   the [Releases](../../releases) page if one has been published).
+2. In the Claude app, go to **Settings → Capabilities → Skills** (wording may vary slightly by app version —
+   look for a "Skills" section under Settings, sometimes called "Capabilities").
+3. Click **Upload skill** (or the **+** button in that section) and select `tax-audit-workpaper-skill.zip` as-is —
+   do not unzip it first, and do not re-zip its contents (the zip must contain a single top-level
+   `tax-audit-workpaper/` folder with `SKILL.md` inside it, which is exactly how the download is structured).
+4. Make sure **Code execution** is enabled for your account/conversation — this skill runs a bundled Python
+   script (`scripts/render_output.py`) to produce the final Word/HTML files, so Claude needs the ability to
+   execute it. If you don't see a code-execution toggle, check Anthropic's current Skills documentation, since
+   this capability and its exact setting name have been evolving.
+5. Start a new chat, attach or paste in the client's source documents, and ask Claude to prepare the tax audit
+   workpaper. Claude will recognize the skill from its description and use it automatically.
+
+### Option B — Claude Code (copy into a project)
+
+1. Clone this repo, or just download it.
+2. Copy the `.claude/skills/tax-audit-workpaper/` folder into the `.claude/skills/` directory of whichever
+   project/working folder you run Claude Code from (create `.claude/skills/` if it doesn't exist yet). Note
+   `.claude` is a dot-folder — enable "show hidden files" in your file browser if you want to see it directly,
+   or just use `cp -r`/drag-and-drop, which works without needing to see it.
+3. Open that folder in Claude Code as usual and ask it to prepare a tax audit workpaper from a client's documents.
+
 ## What it produces
 
 Given a folder of client documents, the skill drafts a clause-by-clause workpaper covering every applicable Form
@@ -66,13 +96,13 @@ re-check first.
 
 ## How to use it
 
-1. Copy `.claude/skills/tax-audit-workpaper/` into the `.claude/skills/` folder of the project you're working in
-   (or clone this whole repo as that project, since it's already laid out that way).
-2. Open Claude Code in that project and hand it a client's source documents — trial balance, financials, AIS/TIS,
-   Form 16, GST returns, whatever you have. Ask it to prepare the tax audit workpaper for that client.
-3. Claude reads the documents, consults the reference files to work out how each clause should be answered,
+Once installed (either option above):
+
+1. Hand Claude a client's source documents — trial balance, financials, AIS/TIS, Form 16, GST returns, bank
+   statements, whatever you have — and ask it to prepare the tax audit workpaper for that client.
+2. Claude reads the documents, consults the reference files to work out how each clause should be answered,
    builds a structured JSON, and runs `scripts/render_output.py` to produce the Word and HTML output.
-4. Review both outputs — pay attention to anything flagged **judgment call** or **missing data** first — then
+3. Review both outputs — pay attention to anything flagged **judgment call** or **missing data** first — then
    re-key the confirmed answers into your tax audit software and file as usual, under your own UDIN.
 
 ### Try it on the demo client first
