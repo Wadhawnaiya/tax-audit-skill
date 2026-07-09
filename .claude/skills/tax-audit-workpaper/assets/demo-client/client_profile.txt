@@ -1,0 +1,47 @@
+BRIGHT HORIZON TEXTILES PRIVATE LIMITED
+Client Intake Sheet / Basic Profile - Tax Audit FY 2025-26 (AY 2026-27)
+(Prepared by front-office staff from client KYC documents - for internal use)
+
+Legal Name: Bright Horizon Textiles Private Limited
+CIN: U17299MH2015PTC123456
+PAN: AABCB1234C
+Date of Incorporation: 11-Aug-2015
+Status: Company (Private Limited, not a company in which the public are substantially interested)
+Registered Office: Plot No. 45, MIDC Industrial Area, Andheri (East), Mumbai - 400093, Maharashtra
+GSTIN: 27AABCB1234C1Z5 (Regular scheme, Maharashtra)
+TAN: MUMB12345C
+Nature of Business: Manufacturing and trading of garments/textile products
+Previous Year: 01-Apr-2025 to 31-Mar-2026
+Assessment Year: 2026-27
+Books of Account Audited Under: Companies Act, 2013 (Statutory Auditor: M/s ABC & Associates, Chartered Accountants,
+  FRN 123456W) - statutory audit report signed 20-Jun-2026
+Tax Regime Opted: Section 115BAA (concessional 22% corporate tax rate) - option first exercised for AY 2021-22
+  vide Form 10-IC, continuing.
+Books of Account Maintained: Tally Prime (ERP), maintained at Registered Office. Books produced for audit: Cash
+  Book, Bank Book, Sales Register, Purchase Register, Journal, General Ledger, Fixed Asset Register, Stock Register.
+Directors: Rajesh Shah (Managing Director, holding 62% equity - PAN AKQPS4321F), Sunita Shah (Director, holding
+  18% equity - PAN AKQPS4322G), 2 independent directors (no shareholding).
+Cost Audit Applicability: Not applicable (turnover/product category does not fall under Companies (Cost Records
+  and Audit) Rules, 2014 mandatory categories).
+Excise Audit Applicability: Not applicable (garments/textiles are outside Central Excise post-GST, no excisable
+  goods manufactured).
+CbCR / Sec 286 Applicability: Not applicable (standalone Indian company, not part of a multinational group with
+  consolidated revenue exceeding the prescribed threshold).
+Form 61A (SFT) Applicability: Not applicable (does not fall under any specified reporting person category under
+  Rule 114E).
+Transfer Pricing / International Transactions: None - no associated enterprise transactions, domestic or
+  cross-border, during FY 2025-26.
+
+Documents handed over for this audit:
+  1. Trial Balance (trial_balance.xlsx)
+  2. Audited Financial Statements with Notes (financial_statements.docx)
+  3. Fixed Asset Register (fixed_asset_register.xlsx)
+  4. AIS/TIS export downloaded from Income Tax portal (ais_tis_export.docx)
+  5. Form 16 for 2 sample employees (form16_details.docx)
+  6. GST Returns Summary - GSTR-3B and GSTR-9 (gst_returns_summary.xlsx)
+  7. Bank Statement Extract - key transactions (bank_statement_extract.xlsx)
+  8. Other Registers - unsecured loans, MSME creditors ageing, related party transactions, brought forward
+     losses, TDS returns filed summary (other_registers.xlsx)
+
+Note to staff: this is a synthetic demo client for testing the skill only. Do not treat any name, PAN, GSTIN,
+CIN or figure above as real.

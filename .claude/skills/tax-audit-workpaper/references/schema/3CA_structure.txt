@@ -1,0 +1,998 @@
+F3CA
+  CreationInfo
+    SWVersionNo
+    SWCreatedBy
+    JSONCreatedBy
+    JSONCreationDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+    IntermediaryCity
+  Form_Details
+    FormName  pattern=FORM3CA
+    Description
+    AssessmentYear  pattern=2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023|2024|
+    SchemaVer  pattern=Ver2.5
+    FormVer  pattern=1.0
+  Declaration
+    Point1
+      I_We1  pattern=I|We
+      AssesseeName
+        FirstName
+        MiddleName
+        LastName
+      AddressDetail
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        LocalityOrArea
+        LocalityOrAreaName
+        PostOffice
+        PostOfficeName
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      PAN  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      Me_Us_Ms  pattern=Me|Us|(M/s)
+      CA_FirmName
+      Act  [01-Andhra Pradesh Charitable and Hindu Religious Institutions and Endowments Act]  enum(n=67)=[01...67]
+      Other_Act
+      I_We2  pattern=I|We
+      My_Our_Their  pattern=My|Our|Their
+      AuditDated  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      DateofsigningTaxAuditReport  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      PointA
+        TypeOfAccount  pattern=Profit and loss account|Income and expenditure account
+        AuditStartDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+        AuditEndDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AuditYearDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      PointC  pattern=Profit and loss account|Income and expenditure account
+    Point3
+      My_Our1  pattern=My|Our
+      My_Our2  pattern=My|Our
+      Me_Us  pattern=Me|Us
+      Observations
+        [array of:]
+          ObservationsCode  [01- Proper books of account, to enable reporting in form 3CD, have not been main]  enum(n=17)=[01...17]
+          ObservationsVal
+  PartA
+    AssesseeName
+      FirstName
+      MiddleName
+      LastName
+    AddressDetail
+      AddrDetail1
+      AddrDetail2
+      CityOrTownOrDistrict
+      LocalityOrArea
+      LocalityOrAreaName
+      PostOffice
+      PostOfficeName
+      StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+      CountryCode
+      PinCode
+    PAN  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+    AadhaarCardNo  pattern=[0-9]{12}
+    IndirectTaxFlag  pattern=Y|N
+    Form3cdIndirectTax
+      [array of:]
+        IndirectTaxType  pattern=CED|SED|SET|SAT|GST|CD|OIT
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        OtherIndirectTaxType
+        RegNo
+    Status  [1-Individual;2-Hindu Undivided Family;3-Firm;4-Limited Liability Partnership;5-C]  pattern=1|2|3|4|5|6|7|8|9|10|11|12
+    PartAStartDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+    PartAEndDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+    AssessmentYear  enum=['2013-14', '2014-15', '2015-16', '2016-17', '2017-18', '2018-19', '2019-20', '2020-21', '2021-22', '2022-23', '2023-24', '2024-25', '2025-26', '2026-27']
+    Clause
+      [array of:]
+        ClauseNo  pattern=44ABa|44ABb|44ABci|44ABcii|44ABciii|44ABd|44ABe|44AB3|44ABAA
+  Form3cdChangeInPartners
+    [array of:]
+      DateOfChange  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      NameOfPartner
+      TypeOfChange  pattern=ADD|DEL|CHANGE
+      OldProfShareRatio
+      NewProfShareRatio
+      Remarks
+  Form3cdFirmAopDetailNew
+    Form3cdFirmAopDetailPK
+      [array of:]
+        ChangeType  pattern=CURR_PROF_SHARE
+        FirmAopDesc
+        FirmAopPerc
+  F3cdFirmAopDtlNatOfBusiness
+    Form3cdFirmAopDetailPK
+      [array of:]
+        ChangeType  pattern=CURR_NATURE_BUSNS
+        Sector  [01-AGRICULTURE, ANIMAL HUSBANDRY and FORESTRY;14-COMPUTER AND RELATED SERVICES;0]  enum(n=23)=[01...16]
+        FirmAopDesc  [00001:Share of Income from Firm only;01001:Growing and manufacturing of tea;0100]  enum(n=371)=[00001...18018]
+  F3cdFirmAopDtlChangeInNature
+    Form3cdFirmAopDetailPK
+      [array of:]
+        ChangeType  pattern=CHNG_NATURE_BUSNS
+        FirmAopBuss  pattern=Added|Discontinued
+        Sector  [01-AGRICULTURE, ANIMAL HUSBANDRY and FORESTRY;14-COMPUTER AND RELATED SERVICES;0]  enum(n=23)=[01...16]
+        FirmAopDesc  [00001:Share of Income from Firm only;01001:Growing and manufacturing of tea;0100]  enum(n=371)=[00001...18018]
+  Form3cdBooksOfAccLst
+    [array of:]
+      Form3cdBooksOfAccLstPK
+        BooksOfAccType  pattern=SEC44AA|LBEX
+        BooksDetail
+  Form3cdBooksOfAccLstAddress
+    [array of:]
+      Form3cdBooksOfAccLstPK
+        BooksOfAccType  pattern=BOAM
+        BooksDetail
+        AddressDetail
+          AddrDetail1
+          AddrDetail2
+          CityOrTownOrDistrict
+          StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+          CountryCode
+          PinCode
+  Form3cdProfGainsPresum
+    [array of:]
+      SectionNo  enum=['44AD', '44ADA', '44AE', '44AF', '44B', '44BB', '44BBA', '44BBB', '44BBC', '44BBD', 'CHAPXIIG', 'FIRSTSCH', 'OTHER']
+      OtherSection
+      Amount
+  Form3cdChngMethAccVal
+    [array of:]
+      Form3cdChngMethAccValPK
+        [array of:]
+          Particulars
+          AccType  pattern=CHANGE_ACC|DEVIATION_SEC145A
+          IncreaseProfits
+          DecreaseProfits
+  Form3cdChngMethAccDtl
+    Detail  [01-Cash system;02-Mercantile system]  enum=['01', '02']
+    AccType  pattern=DEVIATION_ACC
+  Form3cdChngMethAccValChange
+    Form3cdChngMethAccValChangePK
+      [array of:]
+        AccType  pattern=DEVIATION_VAL
+        Icds  pattern=ICDSI|ICDSII|ICDSIII|ICDSIV|ICDSV|ICDSVI|ICDSVII|ICDSVIII|IC
+        IncreaseProfits
+        DecreaseProfits
+        NetEffect
+    Form3cdChngMethAccValTotal
+      [array of:]
+        TotalIncProfit
+        TotalDecProfits
+        TotalNetProfit
+  Form3cdDisclVal
+    [array of:]
+      Form3cdDisclValPK
+        [array of:]
+          AccType  pattern=DEVIATION_VALUE
+          Icds  pattern=ICDSI|ICDSII|ICDSIII|ICDSIV|ICDSV|ICDSVI|ICDSVII|ICDSVIII|IC
+          Disclosure
+  MethodValCS
+    ChangeType  [1-At Cost;2-At Market rate;3-Lower of Cost or Marker rate]  enum=['1', '2', '3']
+    DeviationDesc
+      [array of:]
+  Form3cdCapAsstSit
+    [array of:]
+      DescCapAsst
+      DateOfAcq  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      CostOfAcq
+      AmtConvSit
+  Form3cdAmtNotCredit
+    [array of:]
+      Form3cdAmtNotCreditPk
+        TableType  pattern=ITEMS_SEC28|PRFRMA_CRDTS|ESCL_CLMS_PY|ANY_OTH_INCM|CAP_RECEI
+        TypeOfAmt
+        Description
+  Form3cdDrawbackRefundetc
+    [array of:]
+      Description  [01-Performa credits;02-Drawbacks;03-Refunds of Duty of Customs;04-Refunds of Dut]  enum=['01', '02', '03', '04', '05', '06', '07', '08', '09']
+      DescriptionOthers
+      Amount
+  Form3cdLandBuildProperty
+    [array of:]
+      Details
+      AddressDetail
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      ConsiderAmt
+      Valueadoptedassessed  pattern=Y|N
+      AssessedAmt
+  Form3cdDeprAllw
+    [array of:]
+      methodOfDepreciation  enum=['WDV', 'SLM']
+      adjustment
+      adjustmentwrittendown
+      DescBlockAssets  [8: Building @ 5%;9: Building @ 10%;47: Building @ 40%;10:Building @ 100%;11:Furn]  pattern=1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|
+      RateOfDep
+      OpeningWDV
+      Additions
+        [array of:]
+          PurchaseOrSaleDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+          DatePutToUse  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+          PurchaseOrSaleValue
+          Modvat
+          ExchangeRateChange
+          subsidyGrant
+          TotalPurchaseValue
+      AdditionsInfo
+        CsvDtls
+          HasMoreThan500  enum=['true', 'false']
+          Attachment
+            encodedData
+            mimetype  enum=['text/csv']
+            hash
+      TotalPurchase
+      Puttouseforlessthan180days
+      Puttousefor180daysormore
+      Lessthan180
+      morethan180
+      OtherAdjustmentsifAny
+      Intangibledjustmentwrittendown
+      TotalModvat
+      TotalChangeExchangeRate
+      TotalSubsidyGrant
+      TotalPurchaseValue
+      Deductions
+        [array of:]
+          PurchaseOrSaleDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+          PurchaseOrSaleValue
+          Deletioncheckbox  pattern=true|false
+      DeductionsInfo
+        CsvDtls
+          HasMoreThan500  enum=['true', 'false']
+          Attachment
+            encodedData
+            mimetype  enum=['text/csv']
+            hash
+      TotalDeduction
+      DepAllowable
+      WrittenDownVal
+  Form3cdDebitPlTotAllw
+    [array of:]
+      Section  enum(n=24)=[32AC...any other relevant section]
+      Total
+      Allowable
+      Admissible
+      Others
+  Form3cdEmpBonusComm
+    [array of:]
+      DetailsUs36
+      Amount
+  Form3cdEmpPfSuperannInfo
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdEmpPfSuperann
+    [array of:]
+      NatureOfFund  pattern=PROVIDENT|SUPERAN|GRATUITY|PROV1948|OTHERWELFARE
+      Amount
+      DueDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      ActualAmount
+      ActualDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  Form3cdDebPLExpnditure
+    [array of:]
+      ParticularType  enum=['CAPITAL', 'PERSONAL', 'ADVERTISMNT', 'CLUBFEE', 'CLUBSERVICE', 'PENALTY', 'OTHERPENALTY', 'UNDERLAW', 'OFFENCE', 'SETTLE']
+      Particulars
+      Amount
+  Form3cdAmtInadm40AInfo
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdAmtInadm40A
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40A1Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdAmtInadm40A1
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40A2Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdAmtInadm40A2
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40A3Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdAmtInadm40A3
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40A4Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdAmtInadm40A4
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40A5Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdAmtInadm40A5
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40A6Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdAmtInadm40A6
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40ASubClauseiC
+    [array of:]
+  Form3cdAmtInadm40ASubClauseiia
+    [array of:]
+  Form3cdAmtInadm40ASubClauseiib
+    [array of:]
+  Form3cdAmtInadm40ASubClauseiii
+    [array of:]
+      ParticularType  enum=['SUBCLAUSEi', 'SEC200(1)', 'SUBCLAUSEia', 'SEC139', 'SUBCLAUSEib', 'SEC139B', 'SUBCLAUSEiii']
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmtOfPayment
+      NatureOfPayment
+      NameOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetails
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmtTaxDeducted
+      AmtTaxDeposited
+  Form3cdAmtInadm40ASubClauseiv
+    [array of:]
+  Form3cdAmtInadm40ASubClausev
+    [array of:]
+  Form3cdAmtInadm40AAmtDebit
+    [array of:]
+      Particulars  enum=['Interest', 'Salary', 'Bonus', 'Commission', 'Remuneration']
+      Section  enum=['40b', '40ba']
+      AmountDebitPl
+      AmountAdmisible
+      AmountInAdmisible
+      Remarks
+  Form3cdIncomeUnderSec40A_3
+    [array of:]
+      PaymntSec40A_3A
+        DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+        NatureOfPayment
+        AmtOfPayment
+        NameOfPayee
+        AadhaarCardNo  pattern=[0-9]{12}
+        PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+  ExpendSec40A_3
+    [array of:]
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      NatureOfPayment
+      AmtOfPayment
+      NameOfPayee
+      AadhaarCardNo  pattern=[0-9]{12}
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+  Form3cdExpOth
+    [array of:]
+      Form3cdExpOthPK
+        ExpenditureType  pattern=INADM40A|SUMSEC409|CONTGNTNAT|INTSALBON|GRATSEC40A7||DEDUCSE
+        Particulars  pattern=Salary|Commission|Interest|Remuneration|Bonus
+        Section  pattern=Section40b|Section40ba
+        Amount
+        Details
+  Form3cdInadm
+    [array of:]
+      ParticularType  pattern=SEC69D|SEC23
+      Particulars
+      Amount1
+      Amount2
+      Amount3
+      Amount4
+  Form3cdPymtSec40a2bDetail
+    [array of:]
+      RelatedParyName
+      RelatedParyType
+      Amount
+      RelatedPAN  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      NatureOfTrnsc
+  Form3cdProfGainsTax
+    [array of:]
+      SectionNo  pattern=32AC|32AD|33AB|33ABA|33AC
+      NameOfParty
+      Description
+      Amount
+  Form3cdProfGainsTaxSec41
+    [array of:]
+      NameOfParty
+      Amount1
+      Amount2
+      Amount
+      SectionNo  pattern=SEC411a|SEC411b|SEC412|SEC413|SEC414|SEC41a|SEC415
+      Description
+      Computation
+  Form3cdUnpaidStrySec43bInfo
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdUnpaidStrySec43b
+    [array of:]
+      LiabilityType  pattern=PDPY|NPDPY|PBDD|NPBDD|TAX
+      Section  enum=['43Ba', '43Bb', '43Bc', '43Bd', '43Bda', '43Be', '43Bf', '43Bg', '43B', '43Bh']
+      Description
+      Amount
+  Form3cdUnpaidStrySec43b1Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdUnpaidStrySec43b1
+    [array of:]
+      LiabilityType  pattern=PDPY|NPDPY|PBDD|NPBDD|TAX
+      Section  enum=['43Ba', '43Bb', '43Bc', '43Bd', '43Bda', '43Be', '43Bf', '43Bg', '43B', '43Bh']
+      Description
+      Amount
+  Form3cdUnpaidStrySec43b2Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdUnpaidStrySec43b2
+    [array of:]
+      LiabilityType  pattern=PDPY|NPDPY|PBDD|NPBDD|TAX
+      Section  enum=['43Ba', '43Bb', '43Bc', '43Bd', '43Bda', '43Be', '43Bf', '43Bg', '43B', '43Bh']
+      Description
+      Amount
+  Form3cdUnpaidStrySec43b3Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdUnpaidStrySec43b3
+    [array of:]
+      LiabilityType  pattern=PDPY|NPDPY|PBDD|NPBDD|TAX
+      Section  enum=['43Ba', '43Bb', '43Bc', '43Bd', '43Bda', '43Be', '43Bf', '43Bg', '43B', '43Bh']
+      Description
+      Amount
+  Form3cdTaxPassedThrPl
+  Form3cdPl
+    [array of:]
+      OpeningBalAmount
+      OpeningBalTreatmentPl
+      CenvatAvailAmount
+      CenvatAvailTreatmentPl
+      CenvatUtilizedAmount
+      CenvatUtilizedTreatmentPl
+      BalanceAmount
+      BalanceTreatmentPl
+  Form3cdModvat
+    [array of:]
+      Amount
+      TreatmentOsModVat
+  Form3cdIncExpPriorPlAcc
+    [array of:]
+      Type  pattern=Prior period Income|Prior period Expenditure|Expenditure Deb
+      Particulars
+      Amount
+      PriorYear  enum(n=45)=[1980-81...2024-25]
+  Form3cdSec562viia
+    [array of:]
+      NameOfPerson
+      PANOfPerson  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      NameOfCompany
+      CINissuedByMCA  pattern=[a-zA-Z0-9]{21}
+      NoOfShares
+      AmountConsideration
+      FairMarketShares
+  Form3cdSec562viib
+    [array of:]
+      NameOfPerson
+      AadhaarCardNo  pattern=[0-9]{12}
+      PANOfPerson  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      NoOfShares
+      AmountConsideration
+      FairMarketShares
+  Form3cdSec29IncOtherSourcesAb
+    [array of:]
+      NatureOfIncome
+      NatureAmount
+  Form3cdSec29IncOtherSourcesBb
+    [array of:]
+      NatureOfIncome
+      NatureAmount
+  Form3cdSec69d
+    [array of:]
+      NameOfPerson
+      PANOfPerson  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      AddressDetail
+        AddrDetail1
+        AddrDetail2
+        CityOrTownOrDistrict
+        StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+        CountryCode
+        PinCode
+      AmountBarrowed
+      DateOfBarrow  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      AmountDueIntrst
+      AmountRepaid
+      DateOfRepayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  Form3cdSec92CE
+    [array of:]
+      UnderSec92CE  [01-(i) has been made suo motu by the assessee in his return of income;02-(ii) ma]  enum=['01', '02', '03', '04', '05']
+      PrimaryAdjAmt
+      ExcessRepatriatedAmt  pattern=Y|N
+      ImputedRepatriatedAmt  pattern=Y|N|D
+      ImputedInterestIncome
+      ExpectedDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  Form3cdIncurredExpenditure
+    [array of:]
+      NatureIncurredAmt
+      EBITDAAmt
+      Amt30PerEBITDA
+      Sec94BAssmntYearBfwd  enum=['2018-19', '2019-20', '2020-21', '2021-22', '2022-23', '2023-24', '2024-25', '2025-26']
+      Sec94BAmtBFwd
+      Sec94BAssmntYearCfwd  enum=['2018-19', '2019-20', '2020-21', '2021-22', '2022-23', '2023-24', '2024-25', '2025-26', '2026-27']
+      Sec94BAmtCFwd
+  Form3cdImpermissibleSec96
+    [array of:]
+      NatureImpermissible  pattern=a|b|c|d|e
+      InterestExp94BAmt
+      Others
+  Form3cdAmtSec269ssDetail
+    [array of:]
+      PanNoLender  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      LenderName
+      LenderAddress
+      AmtLoanDeposit
+      LoanDepChqDrftFlag  pattern=Y|N
+      LoanDepSqrdPyFlag  pattern=Y|N
+      MaxAmtOsAccPy
+      NatureAmtCdeType  pattern=C|BD|E|CC|DC|NB|IMPS|UPI|RTGS|NEFT|BHIM|AOM|CP|CR|PTNAPC|RTN
+      LoanDepChqDrftType  pattern=APC|APBD|OM
+      PleaseSpfy
+  Form3cdSec269SSDtls
+    [array of:]
+      ReceiverPanNo  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      ReceiverName
+      ReceiverAddress
+      AmtAccepted
+      OsAccPy  pattern=Y|N
+      NatureAmtCdeBType  pattern=C|BD|E|CC|DC|NB|IMPS|UPI|RTGS|NEFT|BHIM|AOM|CP|CR|PTNAPC|RTN
+      LoanDepChqDrftType  pattern=APC|APBD|OM
+      PleaseSpfyB
+  Form3cdSec269ST31ba
+    [array of:]
+      NameOfPayer
+      AddressOfPayer
+      PANOfPayer  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      NatureOfTransaction
+      ReceiptAmount
+      ReceiptDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  Form3cdSec269ST31bb
+    [array of:]
+      NameOfPayer
+      AddressOfPayer
+      PANOfPayer  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      ReceiptAmount
+  Form3cdSec269ST31bc
+    [array of:]
+      NameOfPayee
+      AddressOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      NatureOfTransaction
+      PaymentAmount
+      PaymentDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  Form3cdSec269ST31bd
+    [array of:]
+      NameOfPayee
+      AddressOfPayee
+      PANOfPayee  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      PaymentAmount
+  Form3cdAmtSec269tDetail
+    [array of:]
+      PayeePanNo  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      PayeeName
+      AadhaarCardNo  pattern=[0-9]{12}
+      PayeeAddress
+      AmtRepayment
+      MaxAmtOsAccPy
+      RepaymentChqDraftFlag  pattern=Y|N
+      NatureAmtCdeCType  pattern=C|BD|E|CC|DC|NB|IMPS|UPI|RTGS|NEFT|BHIM|AOM|CP|CR|PTNAPC|RTN
+      RepaymentChqDraftType  pattern=APC|APBD|OM
+      PleaseSpfyC
+  Form3cdSec269TDtls
+    [array of:]
+      DepositorPanNo  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      DepositorName
+      DepositorAddress
+      AmtDeposit
+  Form3cdSec269TNewDtls
+    [array of:]
+      DepositorPanNo  pattern=[A-Za-z]{5}[0-9]{4}[A-Za-z]
+      AadhaarCardNo  pattern=[0-9]{12}
+      DepositorName
+      DepositorAddress
+      AmtDeposit
+  Form3cdBflDa
+    [array of:]
+      allnotSection115baa
+      amtAdjusted
+      AmtAssessed
+      AmtReturned
+      AssessmentYear  pattern=[0-9]{4}-[0-9]{2}
+      NatureOfLossAllw  pattern=HPLOSS|BUSLOSS|SPECLOSS|SPECIFDLOSS|SHRTERMLOSS|LONGTERMLOSS
+      OrderNo
+      DateOfOrder  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      Remarks
+  Form3cdSpecloss73
+    Form3cdSpec73Flag  pattern=Y|N
+    Form3cdSpec73Detail
+  Form3cdSpec73A
+    Form3cdSpec73AFlag  pattern=Y|N
+    Form3cdSpec73ADetail
+  Form3cdSpecdeemdBus73
+    Form3cdSpecdeemdBusFlag  pattern=Y|N|X
+    Form3cdSpecdeemdBusDetail
+  Form3cdChapVIaChapIII
+    [array of:]
+      Section  enum(n=39)=[10A...80EEB]
+      Amt
+  Form3cdChapXVIIInfo
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdChapXVII
+    [array of:]
+      TAN  pattern=[A-Za-z]{4}[0-9]{5}[A-Za-z]{1}|[A-Za-z]{5}[0-9]{4}[A-Za-z]{1
+      Sec  enum(n=47)=[192...OTH]
+      NatureOfPaymnt
+      AmtOfNatureSpec
+      TotTaxDedCollectd
+      TotTaxSpecRate
+      AmtTaxSpecRate
+      TotLessThanSpecRate
+      AmtTaxDedOrCollect
+      AmtNotDepToGovt
+  Form3cdTaxDedCollectInfo
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdTaxDedCollect
+    [array of:]
+      TAN  pattern=[A-Za-z]{4}[0-9]{5}[A-Za-z]{1}|[A-Za-z]{5}[0-9]{4}[A-Za-z]{1
+      TypeOfForm  enum(n=22)=[24...27EQ]
+      DueDateOfFurnish  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      DateOfFurnish  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      TransactionsFlag  pattern=Y|N
+      ListDetailsTransactions
+  Form3cdSec2011A206C7Info
+    CsvDtls
+      HasMoreThan500  enum=['true', 'false']
+      Attachment
+        encodedData
+        mimetype  enum=['text/csv']
+        hash
+  Form3cdSec2011A206C7
+    [array of:]
+      TAN  pattern=[A-Z][A-Z][A-Z][A-Z]\d\d\d\d\d[A-Z]
+      AmtOfIntrest
+      AmtPaid
+      DueDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  Form3cdTradeRawProdDet
+    [array of:]
+      Form3cdTradeRawProdDetPK
+        ConcernType  pattern=TRADE|RAWMAT|PRODNAME|BYPRODNAME
+      ItemName
+      Unit  [101:gms ;102:kilograms ;103:litre ;104:kilolitre ;105:metre ;106:kilometre ;107:]  pattern=101|102|103|104|105|106|107|108|109|110|111|112|113|114|115|
+      OpeningStock
+      PurchasePy
+      SalesDurPy
+      ClosingStock
+      ShortageExcess
+      ConsumptionManufacPy
+      FinishedProdYield
+      PercentageYield
+  Form3cdDistribtedProf115O
+    [array of:]
+      TotAmtsDistProf
+      AmountRed115O1Ai
+      AmountRed115O1Aii
+      TotalTaxPaid
+      DateOfPayment  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      Amount
+  Form3cdNatureOfDividend
+    [array of:]
+      AmountRecieved
+      ReceiptDate  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  Form3cd36BRecievedAmt
+    [array of:]
+      AmountRecieved1
+      AmountRecieved2
+  CostAudit
+    CostAuditFlag  pattern=Y|N|X
+    CostAuditDetail
+  AuditExcise
+    AuditExciseFlag  pattern=Y|N|X
+    AuditExciseDetail
+  AuditSec72
+    AuditSec72Flag  pattern=Y|N|X
+    AuditSec72Detail
+  Form3cdRefundDmdPrevYr
+    [array of:]
+      FinYear  enum(n=46)=[1980-81...2025-26]
+      NameOfTaxLaw  pattern=CED|SED|SET|GST|SAT|CD|OIT
+      TypeOfAmount  pattern=DEMAND|REFUND
+      DateOfDemand  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      Amount
+      Remarks
+      StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+      OtherTaxLaw
+  Form3cdFurnishStatemnt
+    [array of:]
+      EntityIdNumber  pattern=[A-Za-z]{4}[0-9]{5}[A-Za-z]{1}[.]{1}[A-Za-z]{2}[0-9]{3}|[A-Z
+      FormType  pattern=61|61A|61B
+      DueDateOfFurnish  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      DateOfFurnish  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+      UnderSubSec286  pattern=Y|N
+      ListOrTransactions
+  Form3cdFurnishAltReportSec286
+    FurnishAltReport  pattern=A|P|R
+    NameOfParEntity
+    NameOfAltEntity
+    DateOfFurnish  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+  ExpectedDate
+  Form3cdBreakUpGST
+    [array of:]
+      TotAmtExp
+      GoodOrSerGST
+      CompSchme
+      OthRegEntities
+      RegEntities
+      ExpNonRegGST
+  Form3cdAccountingRatioCalculations
+    PrevYrProfTurnOvr
+      TotalTurnover
+      GrossprofitTurnover
+      NetprofitTurnover1
+      StockInTrade
+      MaterialconsumedFinishedgoods
+      GrosProfNumertr
+      GrosProfDmntr
+      NetProfNumertr
+      NetProfDmntr
+      StockTradeNmrtr
+      StockTradeDmntr
+      MaterialNumrtr
+      MaterialDmntr
+    PrecPrevYrProfTurnOvr
+      TotalTurnover
+      GrossprofitTurnover
+      NetprofitTurnover1
+      StockInTrade
+      MaterialconsumedFinishedgoods
+      GrosProfNumertr
+      GrosProfDmntr
+      NetProfNumertr
+      NetProfDmntr
+      StockTradeNmrtr
+      StockTradeDmntr
+      MaterialNumrtr
+      MaterialDmntr
+  Form3cdFlags
+    ChngMethodOfAcc  pattern=Y|N
+    ChngShareSec79  pattern=Y|N|X
+    ChangeInPartner  pattern=Y|N
+    ChangeNaturBuisnes  pattern=Y|N
+    BookOfAcnt  pattern=Y|N
+    PrftLoassAcnt  pattern=Y|N
+    Sec145  pattern=Y|N
+    Sec145A  pattern=Y|N
+    Sec40A3  pattern=Y|N
+    Sec40A3A  pattern=Y|N
+    SalesTax  pattern=Y|N
+    VATAcnt  pattern=Y|N
+    VATPY  pattern=Y|N
+    Section69D  pattern=Y|N
+    SectionDed  pattern=Y|N
+    ChapXVIIFlag  pattern=Y|N
+    TaxPrescTime  pattern=Y|N
+    Sec201_1A_206_C7  pattern=Y|N|X
+    SharesOfMem  pattern=Y|N
+    Form3cdSec562viiaFlag  pattern=Y|N|X
+    Form3cdSec562viibFlag  pattern=Y|N|X
+    IncomeCluaseixofsubsection2  pattern=Y|N
+    IncomeCluasexofsubsection2  pattern=Y|N
+    TransferPriceSection92CE  pattern=Y|N
+    IncurredExpenditure  pattern=Y|N
+    ImpermissibleSec96  pattern=Y|N
+    Section36BFlag  pattern=Y|N
+    SubClauseeofClause22  pattern=Y|N
+    FurnishStatement  pattern=Y|N
+    SubSec2Sec286  pattern=Y|N|D
+  OtherInformation1
+    FirstName
+    MiddleName
+    LastName
+    AddrDetail1
+    AddrDetail2
+    CityOrTownOrDistrict
+    LocalityOrArea
+    LocalityOrAreaName
+    PostOffice
+    PostOfficeName
+    StateCode  [01-Andaman and Nicobar islands;02-Andhra Pradesh;03-Arunachal Pradesh;04-Assam;0]  enum(n=38)=[01...99]
+    CountryCode
+    PinCode
+    Place
+    IpAddress
+    attachmentDocument
+      [array of:]
+        docId
+        contentType  pattern=^.*$
+        docName  pattern=^.*$
+        docSize
+        docHash  pattern=^.*$
+    Date  [Date in YYYY-MM-DD format]  pattern=([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))
+    MembershipNo  pattern=[0-9]{6}
+    FirmRegNum  pattern=[a-zA-Z0-9]{0,8}
+  assignFlag
+  type
