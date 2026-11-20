@@ -1,0 +1,8 @@
+clients/*
+!clients/README.md
+**/_extracted/
+**/_work/
+__pycache__/
+*.pyc
+~$*
+.DS_Store
