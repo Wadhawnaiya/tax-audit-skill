@@ -1,77 +1,82 @@
-# Workpaper JSON schema (input to `scripts/render_output.py`)
-
-Build one JSON object per client and save it, then run:
+# Workpaper JSON schema v2.0 (input to the scripts)
 
 ```
-python3 scripts/render_output.py <workpaper.json> <output_dir>
+python3 scripts/validate_workpaper.py <workpaper.json>          # quality gate — fix every ERROR
+python3 scripts/render_output.py <workpaper.json> <output_dir>  # docx + html + xlsx review register
 ```
 
-This produces `<slug>_tax_audit_workpaper.docx` and `<slug>_tax_audit_workpaper.html` in `<output_dir>`. The
-script only lays the data out — it does not compute, judge, or validate tax positions. All of that must already
-be decided before this JSON is built.
+The scripts only check and lay out data. They never compute or judge tax positions. Version 1 files (no
+`engagement`, `reconciliations`, `sources`, `impact`) still render; the validator will warn about what's missing.
 
-## Top-level shape
+## Top level
 
 ```json
 {
+  "schema_version": "2.0",
   "form_type": "3CA",
-  "client": {
-    "name": "...",
-    "pan": "...",
-    "status": "...",
-    "previous_year": "01-Apr-2025 to 31-Mar-2026",
-    "assessment_year": "2026-27",
-    "...any other flat key/value worth showing on the cover page...": "..."
+  "client": { "name": "...", "pan": "...", "status": "...", "previous_year": "01-Apr-2025 to 31-Mar-2026",
+              "assessment_year": "2026-27", "...any other cover facts...": "..." },
+  "engagement": {
+    "prepared_by": "...", "reviewer": "", "audit_report_due_date": "...",
+    "documents": [ {"ref": "D1", "file": "trial_balance.xlsx", "description": "Trial balance FY 2025-26"} ]
   },
-  "clauses": [
-    { "number": "8a", "title": "...", "answer": "...", "table": [...], "status": "filled", "notes": "..." }
-  ]
+  "preparer": { "name": "...", "phone": "...", "url": "..." },
+  "reconciliations": [ { "item": "...", "source_a": "...", "amount_a": 0, "source_b": "...", "amount_b": 0,
+                         "difference": 0, "status": "matched|explained|unexplained", "explanation": "..." } ],
+  "clauses": [ { ...clause entry... } ]
 }
 ```
 
-- `form_type`: `"3CA"` or `"3CB"` — decide this first, per `references/clauses-cover-and-applicability.md`, before building anything else.
-- `client`: a flat object of label → value. Keys are title-cased automatically for display (`previous_year` → "Previous Year"). Include whatever cover-page facts clauses 1–7 need.
-- `clauses`: an ordered array, one entry per Form 3CD clause that applies to this client. Order matters — it drives both the Word document and the HTML table of contents, so emit them in the standard Form 3CD sequence (1, 2, 3 … 44). **Clause 21 is the one clause split into separate lettered entries** — emit `21(a)` through `21(i)` as distinct array entries, matching `references/clauses-18-to-26.md`. Every other multi-part clause (9, 11, 13, 20, 26, 31, 34, etc.) stays a **single** entry per whole number, with its internal sub-items (e.g. 11(a)/(b)/(c)) folded into that one entry's `answer`/`table`/`notes` — don't split those into separate array entries or the completeness checker will show false-positive omission warnings.
+- `form_type` — `"3CA"` or `"3CB"`; decide first (`clauses-cover-and-applicability.md`).
+- `client` — flat label → value. Keys display with acronyms kept (`pan` → PAN, `gstin` → GSTIN).
+- `engagement.documents` — use the refs from `extract_text.py --all` (INVENTORY.md). Sources cite these refs.
+- `preparer` — optional; overrides the default credit line printed on every output.
+- `reconciliations` — see `reconciliations.md`. Shown as a table in all three outputs.
 
-## Clause entry fields
+## Clause entry
 
-| Field    | Required | Notes |
-|----------|----------|-------|
-| `number` | yes | Exact clause label as it appears on the form, e.g. `"21(b)"`, `"29A"`, `"8a"`. Must match the labels used in `references/clauses-*.md` so the completeness checker in the renderer recognizes it. |
-| `title`  | yes | Short clause heading, e.g. `"Amounts inadmissible under section 40(a)"`. |
-| `status` | yes | One of `filled`, `missing`, `judgment`, `not_applicable`. See below. |
-| `answer` | no | Free-text drafted answer. Omit or leave empty if the clause is purely tabular. |
-| `table`  | no | Either a list of objects with identical keys (keys become column headers, in order), or a list of lists (no header row). Use for anything naturally tabular — clause 18 depreciation, clause 26 43B items, clause 31 loans/deposits, clause 34 TDS compliance, clause 35 quantitative details, etc. |
-| `notes`  | no | Short explanation, source citation, or the specific reason something is flagged. Always fill this in when `status` is `missing` or `judgment` — an unexplained flag is not useful to the reviewing CA. |
+| Field | Required | Notes |
+|---|---|---|
+| `number` | yes | Exact label: `"8a"`, `"21(b)"`, `"29A"`, `"36B"`. Only clause 21 is split by letter; every other multi-part clause (9, 11, 13, 20, 22, 26, 31, 34 …) is ONE entry with sub-items inside it. Never 28 or 29. |
+| `title` | yes | Short heading. |
+| `status` | yes | `filled` / `judgment` / `missing` / `not_applicable` (below). |
+| `answer` | — | Text as it will be typed into the utility. Use `\n` for sub-items like (a), (b). |
+| `table` | — | List of objects with identical keys (keys = headers) or list of lists. |
+| `notes` | if judgment/missing | The fact, the rule, the conclusion, what would change it. |
+| `sources` | strongly expected | List like `"D9 R43"`, `"D4: contingent liabilities note"`. |
+| `impact` | — | One object or a list: `{"amount": 55000, "direction": "add"|"deduct", "basis": "s.40A(3)", "description": "...", "double_count_of": "26"}`. Add `double_count_of` when the same amount is already counted in another clause. |
+| `priority` | for judgment/missing | `high` / `medium` / `low` — orders the CA attention list. |
+| `client_query` | for missing | Exactly what to ask the client for. Collected into Appendix A and the Client Queries sheet. |
 
-## Status values — pick correctly, this drives the whole review workflow
+## Status values — this drives the whole review
 
-- **`filled`** — a confident, fully-sourced answer. No badge shown.
-- **`missing`** — a *factual* figure or document is absent from what the client provided. Never invent a number to avoid this status; use it instead. `notes` should say exactly what's missing and from where it would normally come (e.g. "PF payment challans not provided — cannot confirm actual remittance date").
-- **`judgment`** — the facts are present, but the correct tax treatment requires interpretation, a borderline call, or something only the CA should sign off on (e.g. reasonableness of related-party pricing, whether a Rule 6DD exception applies, GAAR applicability). Give your best-guess `answer`/`table` AND explain the judgment call in `notes`.
-- **`not_applicable`** — actively confirmed as not relevant to this client (e.g. clause 30A when there are no international transactions). Don't use this as a default for "didn't check" — only use it when the source documents or client profile affirmatively support N/A. If genuinely unchecked, use `missing` instead.
+- **`filled`** — confident, fully sourced. No badge.
+- **`judgment`** — facts known, treatment needs the CA (best-guess answer + reasoning in notes).
+- **`missing`** — a factual figure or document is absent. Never invent a number to avoid this status.
+- **`not_applicable`** — affirmatively supported by the documents (say by what). Not a default for "didn't check".
 
-## Completeness checking
+A clause can be `missing` and still carry a confirmed `impact` (e.g. one late PF month known, the other eleven
+not yet checked).
 
-The renderer carries its own canonical list of standard Form 3CD clause numbers (see `CANONICAL_CLAUSES` in
-`scripts/render_output.py` — note clauses 28 and 29 were deleted from the form by CBDT Notification 23/2025 and are
-correctly absent from that list, while a new clause 36B — buy-back-of-shares deemed dividend under section
-2(22)(f) — was inserted by the same notification and is included). Any canonical clause missing entirely from your `clauses` array — not even
-present as `not_applicable` — triggers a visible warning banner in both outputs. Before finalizing the JSON, make
-sure every applicable clause for the client's entity type and Form (3CA vs 3CB) is represented, even if only to
-mark it `not_applicable`. Silently omitting a clause because it seemed irrelevant looks identical to forgetting it
-— always emit an explicit `not_applicable` entry instead of leaving it out.
+## What the renderer produces
 
-## Example minimal entry
+| File | Contents |
+|---|---|
+| `<slug>_tax_audit_workpaper.docx` | Client & engagement, review summary, CA attention list, computation impact summary, reconciliations, clause-by-clause (with sources, impact, client query), Appendix A client queries, Appendix B documents. |
+| `<slug>_tax_audit_workpaper.html` | Same content; filter buttons (judgment / missing / impact), search box, print layout, dark mode. |
+| `<slug>_review_register.xlsx` | Review Register (reviewer comment + sign-off dropdown + progress %), Impact Summary (live formulas), Reconciliations, Client Queries tracker, Documents. |
+
+## Example entry
 
 ```json
 {
   "number": "21(d)",
-  "title": "Disallowance under section 40A(3) — cash payments exceeding prescribed limit",
-  "status": "judgment",
-  "table": [
-    {"Date": "12-Aug-2025", "Payee": "Shree Balaji Packaging", "Amount": "55,000", "Mode": "Cash"}
-  ],
-  "notes": "Single-day cash payment to one party exceeds Rs.10,000; no Rule 6DD exception identified from available records. CA to confirm disallowance and check for any exception not evident from the bank/cash book alone."
+  "title": "Disallowance u/s 40A(3)/40A(3A) — cash payments",
+  "status": "filled",
+  "table": [{"Date": "12-Aug-2025", "Payee": "Shree Balaji Packaging", "Amount": "55,000", "Mode": "Cash"}],
+  "impact": {"amount": 55000, "direction": "add", "basis": "s.40A(3)", "description": "Cash payment"},
+  "notes": "Single payment to one party in a day above Rs. 10,000; no Rule 6DD exception in the records.",
+  "sources": ["D2 R7", "D9 R65"],
+  "client_query": "Full cash book for FY 2025-26."
 }
 ```

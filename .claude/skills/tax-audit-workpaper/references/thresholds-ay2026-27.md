@@ -3,7 +3,7 @@
 **Authoritative source for this skill.** Where any clause-guide file states a figure that conflicts with this
 file, trust this file. Compiled and web-verified for Assessment Year 2026-27 / Previous Year 2025-26 (1-Apr-2025
 to 31-Mar-2026), under the Income-tax Act, 1961, Section 44AB, Forms 3CA/3CB-3CD. Confirmed current as of this
-skill's build date (Jul-2026); refresh after the next Finance Act (Budget, typically Feb) if this file is more
+skill's build date (Jul-2026), due dates re-verified 20-Nov-2026; refresh after the next Finance Act (Budget, typically Feb) if this file is more
 than a year old — see the update checklist at the end.
 
 ## 1. Section 44AB — tax audit applicability thresholds
@@ -61,7 +61,7 @@ Sridhar & Co., and cross-checked for consistency across sources.
 | 194A | Interest (other than on securities) | Rs. 50,000 (banks/co-op societies/post office); Rs. 1,00,000 for senior citizen payees; Rs. 10,000 in other cases | 10% |
 | 194C | Payments to contractors | Rs. 30,000 single payment / Rs. 1,00,000 aggregate in the year (unchanged) | 1% (individual/HUF payee), 2% (others) |
 | 194H | Commission or brokerage | Rs. 20,000 (raised from Rs. 15,000) | 2% (reduced from 5% by an earlier amendment effective Oct-2024) |
-| 194I | Rent | Rs. 6,00,000/year in general Sec 194-I contexts; Sec 194-IB (rent by individuals/HUF not liable to tax audit) revised to Rs. 50,000/month | 10% (land/building/furniture), 2% (plant & machinery); 194-IB flat 2% |
+| 194-I | Rent | Rs. 50,000 per month or part of a month (replaced the old Rs. 2,40,000 per year limit from 1-Apr-2025). Sec 194-IB (rent paid by individuals/HUF not liable to tax audit): Rs. 50,000 per month | 10% (land/building/furniture), 2% (plant & machinery); 194-IB 2% |
 | 194J | Fees for professional or technical services | Rs. 50,000 (raised from Rs. 30,000) | 10% (professional services), 2% (technical services, call centre operations, certain royalty) |
 | 194Q | Purchase of goods | Rs. 50 lakh aggregate purchases from one seller in the year | 0.1% on amount exceeding Rs. 50 lakh |
 | 194T | **New section** — payments by a firm/LLP to its partners (salary, remuneration, bonus, commission, interest) | Rs. 20,000 aggregate in the year | 10% |
@@ -135,20 +135,26 @@ above.
 
 ## 15. Key due dates for AY 2026-27
 
-| Event | Due date |
-|---|---|
-| Tax audit report (Form 3CA/3CB-3CD) — "specified date" under Section 44AB | 30 September 2026 |
-| ITR filing — audit cases (Section 44AB) | 31 October 2026 |
-| ITR filing — transfer pricing cases (Form 3CEB applicable) | 30 November 2026 |
-| ITR filing — non-audit individuals (ITR-1/ITR-2) | 31 July 2026 |
-| ITR filing — non-audit business/professional (ITR-3/ITR-4, no audit) | 31 August 2026 |
-| Belated return | 31 December 2026 |
-| Revised return | 31 March 2027 |
+| Event | Statutory date | **Extended date (CBDT press release 28-Sep-2026 / Circular No. 7/2026)** |
+|---|---|---|
+| Tax audit report (Form 3CA/3CB-3CD) — "specified date" under Section 44AB | 30 September 2026 | **21 October 2026** |
+| ITR filing — audit cases (Section 44AB) | 31 October 2026 | **21 November 2026** |
+| ITR filing — transfer pricing cases (Form 3CEB applicable) | 30 November 2026 | not extended by that circular — check |
+| ITR filing — non-audit individuals (ITR-1/ITR-2) | 31 July 2026 | — |
+| ITR filing — non-audit business/professional (ITR-3/ITR-4, no audit) | 31 August 2026 | — |
+| Belated return | 31 December 2026 | — |
+| Revised return | 31 March 2027 | — |
 
-**Check for extensions before relying on these close to the deadline** — CBDT has extended tax audit/ITR due
-dates in multiple recent years via press release; no extension had been announced as of this skill's build date
-(well before the deadline), so these are the statutory dates. Re-verify via a fresh search if running this skill
-close to September/October 2026.
+**If you are running this skill after 21 October 2026** for an AY 2026-27 audit, the report is late. Section 271B
+penalty can apply (0.5% of turnover/gross receipts, capped at Rs. 1,50,000) unless there is reasonable cause under
+section 273B. Flag this in the hand-off message; do not compute the penalty.
+
+**Revised tax audit report:** Rule 6G(3) of the Income-tax Rules, 1962 allows a revised report where a payment
+after the audit (e.g. a 43B item) or a change in law changes what was reported. Note this as an option in the
+hand-off when a 43B item is paid after the report date.
+
+**Using 43B dates in clause 26:** the "paid on or before the due date of return" test in clause 26 uses the return
+due date under section 139(1) as extended — for audit cases this is now 21 November 2026, not 31 October.
 
 ## 16. UDIN (CA's own compliance step, not computed by this skill)
 
@@ -173,9 +179,9 @@ this priority order — most likely to change first:
    skill was built (clauses 28/29 deleted, clause 36B added, clause 31 coding expanded — see
    `references/clauses-27-to-35.md` and `references/clauses-36-to-44.md`). Check for a new notification before
    assuming the clause list in `scripts/render_output.py`'s `CANONICAL_CLAUSES` is still accurate.
-6. **Whether Form 3CD still applies at all** — from FY 2026-27 (AY 2027-28) onward, tax audits move to the new
-   Income-tax Act 2025 framework (Form No. 26, Section 63). If refreshing this file for AY 2027-28 or later, this
-   entire skill needs a structural rebuild, not just a figures update — check
-   `references/clauses-cover-and-applicability.md`'s applicability section first.
+6. **Whether Form 3CD still applies at all** — from Tax Year 2026-27 onward, tax audits move to the new
+   Income-tax Act 2025 framework (Form No. 26, Section 63, Rule 47 of the Income-tax Rules 2026). This is now
+   confirmed and notified — see `references/form-26-transition.md`. The next refresh is a structural rebuild,
+   not a figures update.
 7. Items 3–13 not otherwise flagged above (40A(3), 43B(h), 269SS/269T/269ST, 56(2)(x), GAAR, 94B, CbCR, 44AA) have
    historically been more stable — check them, but they're lower priority than the above.

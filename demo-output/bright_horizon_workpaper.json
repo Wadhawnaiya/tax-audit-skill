@@ -1,0 +1,1246 @@
+{
+  "schema_version": "2.0",
+  "form_type": "3CA",
+  "client": {
+    "name": "Bright Horizon Textiles Private Limited",
+    "pan": "AABCB1234C",
+    "cin": "U17299MH2015PTC123456",
+    "status": "Domestic company — private limited, not a company in which the public are substantially interested",
+    "address": "Plot No. 45, MIDC Industrial Area, Andheri (East), Mumbai - 400093, Maharashtra",
+    "gstin": "27AABCB1234C1Z5",
+    "tan": "MUMB12345C",
+    "previous_year": "01-Apr-2025 to 31-Mar-2026",
+    "assessment_year": "2026-27",
+    "accounts_audited_under": "Companies Act, 2013 — M/s ABC & Associates (FRN 123456W), report dated 20-Jun-2026",
+    "tax_regime": "Section 115BAA (opted from AY 2021-22, Form 10-IC)"
+  },
+  "engagement": {
+    "prepared_by": "Claude (tax-audit-workpaper skill) — first-pass draft",
+    "reviewer": "",
+    "audit_report_due_date": "21-Oct-2026 (extended by CBDT Circular 7/2026); ITR due 21-Nov-2026",
+    "documents": [
+      {
+        "ref": "D1",
+        "file": "ais_tis_export.pdf",
+        "description": "AIS/TIS downloaded 15-Jun-2026"
+      },
+      {
+        "ref": "D2",
+        "file": "bank_statement_extract.xlsx",
+        "description": "HDFC current account — extract of key transactions (not full statement)"
+      },
+      {
+        "ref": "D3",
+        "file": "client_profile.txt",
+        "description": "Client intake sheet / KYC profile"
+      },
+      {
+        "ref": "D4",
+        "file": "financial_statements.pdf",
+        "description": "Audited financial statements FY 2025-26 with selected notes"
+      },
+      {
+        "ref": "D5",
+        "file": "fixed_asset_register.xlsx",
+        "description": "Fixed asset register (block-wise, Income-tax rates)"
+      },
+      {
+        "ref": "D6",
+        "file": "form16_details.pdf",
+        "description": "Form 16 — two sample employees"
+      },
+      {
+        "ref": "D7",
+        "file": "gst_returns_summary.xlsx",
+        "description": "GSTR-3B monthly summary and GSTR-9 reconciliation"
+      },
+      {
+        "ref": "D8",
+        "file": "other_registers.xlsx",
+        "description": "Unsecured loans, MSME ageing, related parties, b/f losses, TDS returns summary"
+      },
+      {
+        "ref": "D9",
+        "file": "trial_balance.xlsx",
+        "description": "Trial balance for the year ended 31-Mar-2026"
+      }
+    ]
+  },
+  "reconciliations": [
+    {
+      "item": "Turnover: financial statements vs GSTR-9",
+      "source_a": "D4 Revenue from operations",
+      "amount_a": 118540000,
+      "source_b": "D7 GSTR-9 outward taxable value",
+      "amount_b": 118540000,
+      "difference": 0,
+      "status": "matched",
+      "explanation": "Also agrees to TB sales (domestic 10,45,40,000 + export 1,40,00,000). GSTR-3B monthly figures total 11,85,39,904 — Rs. 96 rounding."
+    },
+    {
+      "item": "Interest income and TDS: books vs AIS",
+      "source_a": "D9 Interest on FD",
+      "amount_a": 325000,
+      "source_b": "D1 AIS 194A (HDFC Bank)",
+      "amount_b": 325000,
+      "difference": 0,
+      "status": "matched",
+      "explanation": "TDS Rs. 32,500 per AIS; bank credit Rs. 2,92,500 net (D2 R11)."
+    },
+    {
+      "item": "Dividend income and TDS: books vs AIS",
+      "source_a": "D9 Dividend income",
+      "amount_a": 45000,
+      "source_b": "D1 AIS 194",
+      "amount_b": 45000,
+      "difference": 0,
+      "status": "explained",
+      "explanation": "Amounts agree (TDS Rs. 4,500). But AIS shows the payer as the company itself ('Self - Investee Co.'). Confirm the actual investee company — a company cannot receive dividend from itself."
+    },
+    {
+      "item": "GST input tax credit: GSTR-3B vs GSTR-9",
+      "source_a": "D7 GSTR-3B ITC availed (12 x 6,79,510)",
+      "amount_a": 8154120,
+      "source_b": "D7 GSTR-9 total ITC availed",
+      "amount_b": 81600000,
+      "difference": -73445880,
+      "status": "unexplained",
+      "explanation": "GSTR-9 figure is ten times the 3B total — probably a keying error for 81,60,000; even then Rs. 5,880 is unexplained. Get the filed GSTR-9 and the electronic credit ledger."
+    },
+    {
+      "item": "Salary TDS: Form 16 vs TDS return summary",
+      "source_a": "D6 Form 16 (2 sample employees) TDS",
+      "amount_a": 563000,
+      "source_b": "D8 TDS summary s.192 (all employees)",
+      "amount_b": 485000,
+      "difference": 78000,
+      "status": "unexplained",
+      "explanation": "Two sample Form 16s alone show more TDS (4,85,000 + 78,000) than the return shows for ALL employees, and the s.192 'amount paid' (1,10,00,000) excludes the MD's 24,00,000 salary. Get the filed 24Q returns."
+    },
+    {
+      "item": "Rent: P&L vs s.194-I returns",
+      "source_a": "D9 Rent",
+      "amount_a": 2400000,
+      "source_b": "D8 TDS summary 194-I (Q1, Q3, Q4)",
+      "amount_b": 1800000,
+      "difference": 600000,
+      "status": "unexplained",
+      "explanation": "No Q2 194-I entry. Either TDS not deducted on Q2 rent or it was deducted but not reported."
+    },
+    {
+      "item": "Commission: P&L vs s.194H returns",
+      "source_a": "D9 Commission paid",
+      "amount_a": 960000,
+      "source_b": "D8 TDS summary 194H",
+      "amount_b": 240000,
+      "difference": 720000,
+      "status": "unexplained",
+      "explanation": "Only Q2 commission appears in the returns. Payee-wise ledger needed (threshold Rs. 20,000 per payee)."
+    },
+    {
+      "item": "Professional fees + audit fee: P&L vs s.194J returns",
+      "source_a": "D9 Professional & legal fees + auditors' remuneration",
+      "amount_a": 1870000,
+      "source_b": "D8 TDS summary 194J",
+      "amount_b": 0,
+      "difference": 1870000,
+      "status": "unexplained",
+      "explanation": "No 194J entries at all. Apex Legal Rs. 1,20,000 confirmed unpaid TDS (D8 note, D2 R15). Party-wise ledger needed for the rest."
+    },
+    {
+      "item": "Interest to director: P&L vs s.194A returns",
+      "source_a": "D9 Interest on unsecured loan (director)",
+      "amount_a": 500000,
+      "source_b": "D8 TDS summary 194A",
+      "amount_b": 0,
+      "difference": 500000,
+      "status": "unexplained",
+      "explanation": "No 194A entry for interest paid to Rajesh Shah (threshold Rs. 10,000)."
+    },
+    {
+      "item": "Depreciation: books vs Income-tax",
+      "source_a": "D4/D9 Depreciation & amortisation",
+      "amount_a": 4200000,
+      "source_b": "D5 Fixed asset register (IT rates)",
+      "amount_b": 3652500,
+      "difference": 547500,
+      "status": "unexplained",
+      "explanation": "FS policy says books use IT rates 'aligned'; FAR calls the gap 'rounding'. Rs. 5.475 lakh is not rounding — see clause 18."
+    },
+    {
+      "item": "Other expenses: trial balance vs financial statements",
+      "source_a": "D9 sum of other expense ledgers",
+      "amount_a": 15373000,
+      "source_b": "D4 Note 21 Other expenses",
+      "amount_b": 15320000,
+      "difference": 53000,
+      "status": "unexplained",
+      "explanation": "TB-based PBT is 70,52,000 against FS PBT 71,05,000. Get the final TB that ties to the signed accounts."
+    },
+    {
+      "item": "Trial balance arithmetic",
+      "source_a": "D9 total debits",
+      "amount_a": 189778000,
+      "source_b": "D9 total credits",
+      "amount_b": 195042000,
+      "difference": -5264000,
+      "status": "explained",
+      "explanation": "TB carries both the P&L ledgers and 'Profit for the year (transferred)', so it does not balance. Difference equals the P&L balance. Ask for a clean pre-closing TB."
+    },
+    {
+      "item": "Deferred tax: P&L vs balance sheet",
+      "source_a": "D4 P&L deferred tax",
+      "amount_a": -150000,
+      "source_b": "D4 increase in DTL (7,00,000 to 8,50,000)",
+      "amount_b": 150000,
+      "difference": -300000,
+      "status": "unexplained",
+      "explanation": "DTL went up, so the P&L should show a charge, not a credit. Not a 3CD item, but it affects profit after tax; ratios below use profit before tax."
+    },
+    {
+      "item": "MSME dues: FS note vs ageing vs TB",
+      "source_a": "D4 MSME note",
+      "amount_a": 1800000,
+      "source_b": "D8 MSME ageing / D9 TB",
+      "amount_b": 1800000,
+      "difference": 0,
+      "status": "matched",
+      "explanation": ""
+    },
+    {
+      "item": "Director's cash loan: bank vs loan register vs TB",
+      "source_a": "D2 R6 cash deposit 05-Sep-2025",
+      "amount_a": 350000,
+      "source_b": "D8 loan register / D9 R13",
+      "amount_b": 350000,
+      "difference": 0,
+      "status": "matched",
+      "explanation": ""
+    },
+    {
+      "item": "Inventory: FS vs TB",
+      "source_a": "D4 Inventories",
+      "amount_a": 14600000,
+      "source_b": "D9 RM 82,00,000 + FG 58,00,000 + stores 6,00,000",
+      "amount_b": 14600000,
+      "difference": 0,
+      "status": "matched",
+      "explanation": ""
+    }
+  ],
+  "clauses": [
+    {
+      "number": "1",
+      "title": "Name of the assessee",
+      "status": "filled",
+      "answer": "Bright Horizon Textiles Private Limited",
+      "sources": [
+        "D3: client_profile.txt",
+        "D4: financial_statements.pdf"
+      ]
+    },
+    {
+      "number": "2",
+      "title": "Address",
+      "status": "filled",
+      "answer": "Plot No. 45, MIDC Industrial Area, Andheri (East), Mumbai - 400093, Maharashtra",
+      "sources": [
+        "D3: client_profile.txt",
+        "D4: financial_statements.pdf"
+      ]
+    },
+    {
+      "number": "3",
+      "title": "Permanent Account Number (PAN) / Aadhaar",
+      "status": "filled",
+      "answer": "PAN: AABCB1234C. Aadhaar: not applicable (company).",
+      "sources": [
+        "D3: client_profile.txt",
+        "D1: AIS header"
+      ]
+    },
+    {
+      "number": "4",
+      "title": "Registration under indirect tax laws",
+      "status": "judgment",
+      "table": [
+        {
+          "Law": "GST (Maharashtra, regular scheme)",
+          "Registration no.": "27AABCB1234C1Z5"
+        }
+      ],
+      "notes": "Only GST is evidenced. The company exports (Rs. 1.40 crore), so it must hold an IEC under the Foreign Trade Act and probably professional tax registrations — list them if the utility requires.",
+      "sources": [
+        "D3: client_profile.txt",
+        "D7: GSTR-3B header"
+      ],
+      "priority": "low",
+      "client_query": "Copies/numbers of all indirect-tax and trade registrations: IEC, professional tax (PTRC/PTEC), any GST registration in other states."
+    },
+    {
+      "number": "5",
+      "title": "Status",
+      "status": "filled",
+      "answer": "Company — domestic company (private limited; not a company in which the public are substantially interested).",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "6",
+      "title": "Previous year",
+      "status": "filled",
+      "answer": "01-04-2025 to 31-03-2026",
+      "sources": [
+        "D3: client_profile.txt",
+        "D4: financial_statements.pdf"
+      ]
+    },
+    {
+      "number": "7",
+      "title": "Assessment year",
+      "status": "filled",
+      "answer": "2026-27",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "8",
+      "title": "Relevant clause of section 44AB",
+      "status": "filled",
+      "answer": "Section 44AB(a) — total sales/turnover Rs. 11,85,40,000 exceeds Rs. 10 crore, so audit applies whatever the cash-transaction percentage. Form 3CA (accounts audited under the Companies Act, 2013).",
+      "sources": [
+        "D4: financial_statements.pdf",
+        "D7: GSTR-9"
+      ]
+    },
+    {
+      "number": "8a",
+      "title": "Option for taxation under 115BA/115BAA/115BAB/115BAC/115BAD/115BAE",
+      "status": "filled",
+      "answer": "Yes — section 115BAA. Option first exercised for AY 2021-22 by Form 10-IC; continuing (option cannot be withdrawn).",
+      "notes": "Consequences used elsewhere: no additional depreciation u/s 32(1)(iia) (clause 18), no Chapter VI-A deductions other than 80JJAA/80M (clause 33), MAT does not apply.",
+      "sources": [
+        "D3: client_profile.txt",
+        "D4: tax note 'Sec 115BAA @ 25.168%'"
+      ],
+      "client_query": "Form 10-IC acknowledgement number and filing date (for the utility)."
+    },
+    {
+      "number": "9",
+      "title": "Firm / AOP — partners or members and profit-sharing ratio",
+      "status": "not_applicable",
+      "notes": "Assessee is a company.",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "10",
+      "title": "Nature of business or profession; change during the year",
+      "status": "filled",
+      "answer": "(a) Manufacturing and trading of garments / textile products.\n(b) No change in the nature of business during the year.",
+      "notes": "Select the matching business code in the e-filing utility (manufacturing — textiles/garments). Code not chosen here to avoid guessing.",
+      "sources": [
+        "D3: client_profile.txt",
+        "D4: financial_statements.pdf"
+      ]
+    },
+    {
+      "number": "11",
+      "title": "Books of account",
+      "status": "filled",
+      "answer": "(a) Books maintained (Companies Act, 2013 / s.44AA): Cash book, Bank book, Sales register, Purchase register, Journal, General ledger, Fixed asset register, Stock register — maintained in Tally Prime (computerised).\n(b) Location: Registered office, Plot No. 45, MIDC Industrial Area, Andheri (East), Mumbai - 400093.\n(c) Books examined: the above.",
+      "notes": "For a computerised system the utility also asks for the software name (Tally Prime). Books were listed by the client; this draft reviewed extracts only — the CA's team should confirm examination.",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "12",
+      "title": "Presumptive income credited to P&L (44AD, 44AE, 44BBC etc.)",
+      "status": "not_applicable",
+      "notes": "Company assessed on regular books; no presumptive income credited to P&L.",
+      "sources": [
+        "D3: client_profile.txt",
+        "D4: financial_statements.pdf"
+      ]
+    },
+    {
+      "number": "13",
+      "title": "Method of accounting; changes; ICDS adjustments",
+      "status": "judgment",
+      "answer": "(a) Mercantile system.\n(b) No change in method of accounting.\n(c) Effect of change: not applicable.\n(d) ICDS adjustments: none identified.\n(e)/(f) Disclosures under ICDS: none identified.",
+      "notes": "One prior-period expense (Rs. 35,000) is reported in clause 27(b). FS policy says depreciation is at Income-tax rates, but book and tax depreciation differ by Rs. 5,47,500 (clause 18) — the CA should check the accounting policy disclosure before signing.",
+      "sources": [
+        "D4: financial_statements.pdf",
+        "D9: trial_balance.xlsx"
+      ],
+      "priority": "low"
+    },
+    {
+      "number": "14",
+      "title": "Method of valuation of closing stock; deviation from s.145A",
+      "status": "filled",
+      "answer": "(a) Raw materials, stores and spares: lower of cost (FIFO) and net realisable value. Finished goods: lower of cost (materials + production overheads) and NRV.\n(b) Taxes/duties are included in valuation, consistent with section 145A — no deviation; no adjustment required.",
+      "sources": [
+        "D4: accounting policies — valuation of inventory"
+      ]
+    },
+    {
+      "number": "15",
+      "title": "Capital asset converted into stock-in-trade",
+      "status": "not_applicable",
+      "notes": "No conversion seen in FAR or notes.",
+      "sources": [
+        "D5",
+        "D4: financial_statements.pdf"
+      ]
+    },
+    {
+      "number": "16",
+      "title": "Amounts not credited to the P&L",
+      "status": "missing",
+      "answer": "(a) Items falling within s.28: none identified. (b) Pro forma credits, drawbacks, refunds of duty/GST: none identified. (c) Escalation claims: none. (d) Other income: none. (e) Capital receipts: none.",
+      "notes": "The company exported Rs. 1.40 crore but the books show no export incentives (RoDTEP, duty drawback) or IGST refunds. Confirm none accrued and were left out of income.",
+      "sources": [
+        "D9: trial_balance.xlsx",
+        "D4: financial_statements.pdf"
+      ],
+      "priority": "low",
+      "client_query": "Confirm whether any RoDTEP/duty drawback/IGST refund claims arose on FY 2025-26 exports, with amounts and dates received."
+    },
+    {
+      "number": "17",
+      "title": "Land/building transferred below stamp duty value (43CA/50C)",
+      "status": "not_applicable",
+      "notes": "No land or building transferred — FAR shows no deletion in the Building block.",
+      "sources": [
+        "D5: Building block"
+      ]
+    },
+    {
+      "number": "18",
+      "title": "Depreciation allowable under the Income-tax Act",
+      "status": "judgment",
+      "table": [
+        {
+          "Block": "Building",
+          "Rate": "10%",
+          "Opening WDV": "1,20,00,000",
+          "Additions ≥180 days": "0",
+          "Additions <180 days": "0",
+          "Sale proceeds": "0",
+          "Depreciation": "12,00,000",
+          "Closing WDV": "1,08,00,000"
+        },
+        {
+          "Block": "Plant & machinery",
+          "Rate": "15%",
+          "Opening WDV": "90,00,000",
+          "Additions ≥180 days": "25,00,000",
+          "Additions <180 days": "0",
+          "Sale proceeds": "0",
+          "Depreciation": "17,25,000",
+          "Closing WDV": "97,75,000"
+        },
+        {
+          "Block": "Furniture & fixtures",
+          "Rate": "10%",
+          "Opening WDV": "12,00,000",
+          "Additions ≥180 days": "0",
+          "Additions <180 days": "0",
+          "Sale proceeds": "0",
+          "Depreciation": "1,20,000",
+          "Closing WDV": "10,80,000"
+        },
+        {
+          "Block": "Computers",
+          "Rate": "40%",
+          "Opening WDV": "6,00,000",
+          "Additions ≥180 days": "0",
+          "Additions <180 days": "3,00,000 (15-Jan-2026, 20% effective)",
+          "Sale proceeds": "0",
+          "Depreciation": "3,00,000",
+          "Closing WDV": "6,00,000"
+        },
+        {
+          "Block": "Motor vehicles",
+          "Rate": "15%",
+          "Opening WDV": "25,00,000",
+          "Additions ≥180 days": "0",
+          "Additions <180 days": "0",
+          "Sale proceeds": "4,50,000 (20-Nov-2025)",
+          "Depreciation": "3,07,500",
+          "Closing WDV": "17,42,500"
+        },
+        {
+          "Block": "Total",
+          "Rate": "",
+          "Opening WDV": "2,53,00,000",
+          "Additions ≥180 days": "25,00,000",
+          "Additions <180 days": "3,00,000",
+          "Sale proceeds": "4,50,000",
+          "Depreciation": "36,52,500",
+          "Closing WDV": "2,39,97,500"
+        }
+      ],
+      "notes": "Computer added 15-Jan-2026 used under 180 days, so half rate (20%). Vehicle sold for 4,50,000 — sale proceeds reduce the block, block continues, no s.50 gain (the asset's own WDV is irrelevant under the block system). Company is under 115BAA, so no additional depreciation u/s 32(1)(iia) on the new plant. Open points: (1) FS says book depreciation is at IT rates, yet books show 42,00,000 vs 36,52,500 here; (2) date put to use, GST credit and any subsidy for the 25 lakh plant addition are not in the documents.",
+      "sources": [
+        "D5: fixed_asset_register.xlsx",
+        "D9 R49",
+        "D2 R10"
+      ],
+      "impact": {
+        "amount": 547500,
+        "direction": "add",
+        "basis": "s.32 vs book depreciation",
+        "description": "Book depreciation 42,00,000 added back; IT depreciation 36,52,500 allowed"
+      },
+      "priority": "medium",
+      "client_query": "Invoices and put-to-use dates for plant & machinery additions of Rs. 25,00,000; confirmation of GST credit claimed on them; break-up of book depreciation of Rs. 42,00,000 by block."
+    },
+    {
+      "number": "19",
+      "title": "Amounts admissible under ss.33AB–35E",
+      "status": "filled",
+      "answer": "NIL — no expenditure of these kinds debited to P&L.",
+      "sources": [
+        "D9: trial_balance.xlsx"
+      ]
+    },
+    {
+      "number": "20",
+      "title": "Bonus/commission in lieu of profit (36(1)(ii)); employees' contributions to welfare funds (36(1)(va))",
+      "status": "missing",
+      "answer": "(a) No bonus or commission in lieu of profit/dividend identified. Bonus to employees Rs. 8,00,000 is ordinary bonus (s.43B timing in clause 26).\n(b) Employees' contributions received and deposited:",
+      "table": [
+        {
+          "Nature of fund": "PF — employee share, Feb-2026 wages",
+          "Sum received from employees": "42,000 (short-remitted portion)",
+          "Due date": "15-Mar-2026",
+          "Amount paid": "42,000",
+          "Actual date of payment": "25-Apr-2026"
+        }
+      ],
+      "notes": "Only one month's challans are in the papers. Clause 20(b) needs every month's employee PF/ESI deduction, due date and payment date. Do not give return-due-date relief to the employee share.",
+      "sources": [
+        "D2 R8, R9",
+        "D9: trial_balance.xlsx"
+      ],
+      "impact": {
+        "amount": 42000,
+        "direction": "add",
+        "basis": "s.36(1)(va) r/w s.2(24)(x)",
+        "description": "Employees' PF for Feb-2026 deposited late — permanently disallowed (Checkmate Services, SC 2022)"
+      },
+      "priority": "high",
+      "client_query": "Monthly PF and ESI challans (ECR) for Apr-2025 to Mar-2026 with payment dates, and the payroll summary of employee contributions deducted each month."
+    },
+    {
+      "number": "21(a)",
+      "title": "Capital, personal, political-advertisement, club, penalty and similar expenditure debited to P&L",
+      "status": "judgment",
+      "table": [
+        {
+          "Nature": "Advertisement in souvenir of a political party — s.37(2B)",
+          "Ledger": "Donation - Political Party (Advt. in Souvenir)",
+          "Amount": "2,00,000",
+          "Treatment": "Disallow"
+        },
+        {
+          "Nature": "Club membership & subscription",
+          "Ledger": "Club Membership & Subscription",
+          "Amount": "1,50,000",
+          "Treatment": "Report; disallow only entrance fee/personal element — CA to decide"
+        },
+        {
+          "Nature": "Penalty — GST late filing",
+          "Ledger": "Penalty - GST Late Filing",
+          "Amount": "45,000",
+          "Treatment": "Disallow if penal (Expl. 1 to s.37(1))"
+        },
+        {
+          "Nature": "CSR expenditure",
+          "Ledger": "CSR Expenditure",
+          "Amount": "1,80,000",
+          "Treatment": "Disallow (conservative) — see note"
+        },
+        {
+          "Nature": "Possible personal use — motor car",
+          "Ledger": "Motor Car Expenses",
+          "Amount": "4,20,000",
+          "Treatment": "Personal element not quantifiable from records"
+        }
+      ],
+      "notes": "Souvenir advertisement: clearly disallowed u/s 37(2B). 80GGB would treat it as a contribution, but 115BAA companies cannot claim Chapter VI-A deductions. Club: the Supreme Court (United Glass, 2012) allowed corporate club subscriptions for business use, so only the entrance fee or personal portion is disallowable — kept out of the impact pending the CA's call. GST: if the Rs. 45,000 is a late fee under s.47 CGST (compensatory) rather than a penalty, it is allowable — check the challan. CSR: s.135 does not apply (turnover < 1,000 cr, profit < 5 cr), so Explanation 2 arguably does not bite; deductibility then depends on business purpose — conservative disallowance shown. Motor car: GST note calls the car 'personal/mixed use'; without a log book the personal share cannot be measured.",
+      "sources": [
+        "D9 R56, R57, R58, R59, R70",
+        "D7: GSTR-3B note on blocked credit"
+      ],
+      "impact": [
+        {
+          "amount": 200000,
+          "direction": "add",
+          "basis": "s.37(2B)",
+          "description": "Political party souvenir advertisement"
+        },
+        {
+          "amount": 45000,
+          "direction": "add",
+          "basis": "Expl. 1 to s.37(1)",
+          "description": "GST penalty"
+        },
+        {
+          "amount": 180000,
+          "direction": "add",
+          "basis": "Expl. 2 to s.37(1) / s.37(1)",
+          "description": "CSR expenditure"
+        }
+      ],
+      "priority": "high",
+      "client_query": "GST challan/order for the Rs. 45,000 'penalty' (late fee or penalty?); club bill showing entrance fee vs subscription; CSR payment receipts and purpose; motor car log book or usage policy."
+    },
+    {
+      "number": "21(b)",
+      "title": "Amounts inadmissible under s.40(a) — TDS defaults",
+      "status": "judgment",
+      "table": [
+        {
+          "Payee / nature": "Apex Legal Consultants — professional fees (18-Jun-2025)",
+          "Section": "194J",
+          "Amount paid": "1,20,000",
+          "TDS per return": "Nil",
+          "Status": "Default confirmed",
+          "Disallowance @30%": "36,000"
+        },
+        {
+          "Payee / nature": "Rajesh Shah — interest on unsecured loan",
+          "Section": "194A",
+          "Amount paid": "5,00,000",
+          "TDS per return": "Nil",
+          "Status": "No 194A entry",
+          "Disallowance @30%": "1,50,000"
+        },
+        {
+          "Payee / nature": "Property owner — rent Q2 (Jul–Sep 2025)",
+          "Section": "194-I",
+          "Amount paid": "6,00,000",
+          "TDS per return": "Not in Q2 return",
+          "Status": "Deducted? confirm",
+          "Disallowance @30%": "1,80,000"
+        },
+        {
+          "Payee / nature": "Commission — Q1, Q3, Q4",
+          "Section": "194H",
+          "Amount paid": "7,20,000",
+          "TDS per return": "Not reported",
+          "Status": "Payee-wise data needed",
+          "Disallowance @30%": "up to 2,16,000"
+        },
+        {
+          "Payee / nature": "Other professional & legal fees",
+          "Section": "194J",
+          "Amount paid": "14,50,000",
+          "TDS per return": "Nil",
+          "Status": "Party-wise data needed",
+          "Disallowance @30%": "up to 4,35,000"
+        },
+        {
+          "Payee / nature": "Statutory / tax audit fee",
+          "Section": "194J",
+          "Amount paid": "3,00,000",
+          "TDS per return": "Nil",
+          "Status": "Confirm",
+          "Disallowance @30%": "up to 90,000"
+        }
+      ],
+      "notes": "Found by matching P&L ledgers against the TDS return summary, not by reading any one document. Apex Legal is confirmed by the client's own note (D8). Director interest and Q2 rent have no TDS entry at all. Commission, other professional fees and audit fee need payee-wise ledgers before any disallowance (thresholds: 194H Rs. 20,000; 194J Rs. 50,000 per payee from FY 2025-26). Maximum further exposure if all are defaults: about Rs. 7.41 lakh. If TDS is deducted and paid before the return due date (21-Nov-2026) the disallowance reverses in this year; if later, it is allowed in the year of payment.",
+      "sources": [
+        "D8: TDS Returns Filed Summary R4–R14",
+        "D9 R47, R50, R54, R64, R69",
+        "D2 R15"
+      ],
+      "impact": [
+        {
+          "amount": 36000,
+          "direction": "add",
+          "basis": "s.40(a)(ia)",
+          "description": "Apex Legal — 194J not deducted"
+        },
+        {
+          "amount": 150000,
+          "direction": "add",
+          "basis": "s.40(a)(ia)",
+          "description": "Interest to director — 194A not deducted"
+        },
+        {
+          "amount": 180000,
+          "direction": "add",
+          "basis": "s.40(a)(ia)",
+          "description": "Q2 rent — no 194-I in return"
+        }
+      ],
+      "priority": "high",
+      "client_query": "Party-wise ledgers for professional & legal fees, commission and auditors' remuneration; TDS challans and 26Q returns for all four quarters; confirm whether TDS was deducted on Q2 rent and on interest to Rajesh Shah."
+    },
+    {
+      "number": "21(c)",
+      "title": "Partner interest/remuneration disallowed u/s 40(b)/40(ba)",
+      "status": "not_applicable",
+      "notes": "Assessee is a company.",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "21(d)",
+      "title": "Disallowance u/s 40A(3)/40A(3A) — cash payments",
+      "status": "filled",
+      "table": [
+        {
+          "Date": "12-Aug-2025",
+          "Payee": "Shree Balaji Packaging",
+          "Nature": "Packing material (revenue)",
+          "Amount": "55,000",
+          "Mode": "Cash",
+          "Rule 6DD exception": "None evident"
+        }
+      ],
+      "notes": "Single payment to one party in one day above Rs. 10,000, revenue expense, no Rule 6DD exception in the records. Only the bank extract was available — scan the full cash book for other cash payments above Rs. 10,000 (and 40A(3A) for prior-year creditors paid in cash).",
+      "sources": [
+        "D2 R7",
+        "D9 R65"
+      ],
+      "impact": {
+        "amount": 55000,
+        "direction": "add",
+        "basis": "s.40A(3)",
+        "description": "Cash payment to Shree Balaji Packaging"
+      },
+      "client_query": "Full cash book for FY 2025-26 (to check all cash payments above Rs. 10,000 per party per day)."
+    },
+    {
+      "number": "21(e)",
+      "title": "Provision for gratuity disallowed u/s 40A(7)",
+      "status": "judgment",
+      "answer": "Provision for gratuity Rs. 6,50,000 debited to P&L; the same amount sits as 'Provision for Gratuity' in liabilities — i.e. unfunded.",
+      "notes": "A gratuity provision is deductible only to the extent of contributions to an approved gratuity fund (or actual payment). Nothing in the papers shows an approved fund or LIC group gratuity scheme. Report under 21(e) only; do not also add back under 43B.",
+      "sources": [
+        "D9 R16, R43"
+      ],
+      "impact": {
+        "amount": 650000,
+        "direction": "add",
+        "basis": "s.40A(7)",
+        "description": "Unfunded gratuity provision"
+      },
+      "priority": "high",
+      "client_query": "Is there an approved gratuity fund / LIC group gratuity policy? If yes, contributions paid during FY 2025-26 and up to the return date, and the approval letter."
+    },
+    {
+      "number": "21(f)",
+      "title": "Disallowance u/s 40A(9) — contributions to non-statutory funds",
+      "status": "filled",
+      "answer": "NIL — no contributions to unapproved funds identified.",
+      "notes": "Staff welfare Rs. 4,00,000 assumed to be direct welfare spending; confirm no payment to any trust/fund.",
+      "sources": [
+        "D9 R42"
+      ]
+    },
+    {
+      "number": "21(g)",
+      "title": "Contingent liabilities debited to P&L",
+      "status": "filled",
+      "answer": "NIL. A GST demand of Rs. 8,50,000 (notice dated 18-Feb-2026, FY 2022-23 ITC dispute) is disclosed as a contingent liability but was NOT debited to P&L.",
+      "notes": "The same demand is reported in clause 41.",
+      "sources": [
+        "D4: contingent liabilities note"
+      ]
+    },
+    {
+      "number": "21(h)",
+      "title": "Disallowance u/s 14A — expenditure on exempt income",
+      "status": "filled",
+      "answer": "NIL — no exempt income. Dividend (Rs. 45,000) and FD interest (Rs. 3,25,000) are taxable.",
+      "sources": [
+        "D9 R32, R33",
+        "D1"
+      ]
+    },
+    {
+      "number": "21(i)",
+      "title": "Interest disallowable under proviso to s.36(1)(iii)",
+      "status": "missing",
+      "answer": "Capital work-in-progress of Rs. 8,00,000 at year end; term loan interest Rs. 22,00,000 debited.",
+      "notes": "If any borrowed money funded the CWIP or the plant additions before they were put to use, interest for that period is not deductible. Fund-flow and put-to-use dates are not in the papers.",
+      "sources": [
+        "D9 R20, R45",
+        "D4: financial_statements.pdf"
+      ],
+      "priority": "low",
+      "client_query": "Nature of CWIP (Rs. 8,00,000) and whether it or the Rs. 25,00,000 plant addition was financed from the term loan; put-to-use dates."
+    },
+    {
+      "number": "22",
+      "title": "MSMED Act — interest inadmissible (s.23) and amounts payable to micro/small enterprises (43B(h))",
+      "status": "missing",
+      "answer": "(i) Interest inadmissible u/s 23 MSMED Act: none debited to P&L.\n(ii) Total amount required to be paid to micro/small enterprises during the year: not available.\n(iii)(a) Paid within s.15 time: not available.\n(iii)(b) Not paid within s.15 time and inadmissible: Rs. 6,50,000 — Om Fabrics (Micro, UDYAM-MH-03-0012345), invoice 10-Jan-2026, due 09-Feb-2026, unpaid at 31-Mar-2026.",
+      "notes": "Same Rs. 6,50,000 is reported in clause 26 — disallow once. Shakti Textile Traders (Rs. 4,00,000) was not yet due at 31-Mar-2026 (due 19-Apr-2026), so no disallowance; its name suggests a trader, and traders are outside MSMED s.15/16 anyway. Interest u/s 16 legally accrues on Om Fabrics from 09-Feb-2026 even though not booked — disclose as an exposure, not a disallowance.",
+      "sources": [
+        "D8: MSME Creditors Ageing R4–R8",
+        "D4: MSME note"
+      ],
+      "impact": {
+        "amount": 650000,
+        "direction": "add",
+        "basis": "s.43B(h)",
+        "description": "Om Fabrics — also in clause 26",
+        "double_count_of": "26"
+      },
+      "priority": "medium",
+      "client_query": "Supplier-wise MSME purchase register for FY 2025-26 (invoice date, acceptance date, agreed credit period, payment date) and Udyam certificates showing category and activity (manufacturer/service vs trader)."
+    },
+    {
+      "number": "23",
+      "title": "Payments to persons specified u/s 40A(2)(b)",
+      "status": "judgment",
+      "table": [
+        {
+          "Name": "Rajesh Shah",
+          "PAN": "AKQPS4321F",
+          "Relation": "Managing Director, 62% shareholder",
+          "Nature": "Directors' remuneration",
+          "Amount": "24,00,000"
+        },
+        {
+          "Name": "Rajesh Shah",
+          "PAN": "AKQPS4321F",
+          "Relation": "Managing Director, 62% shareholder",
+          "Nature": "Interest on unsecured loan",
+          "Amount": "5,00,000"
+        }
+      ],
+      "notes": "Interest of Rs. 5,00,000 on a loan of Rs. 3,50,000 taken on 05-Sep-2025 (207 days to year end) works out to about 252% a year. Either the loan register is incomplete (other loans taken and repaid) or the interest is excessive and open to disallowance u/s 40A(2)(a). Check also whether Sunita Shah (Director, 18%) received any payment — none in the papers.",
+      "sources": [
+        "D8: Related Party Transactions",
+        "D4: related party note",
+        "D8: Unsecured Loans Register"
+      ],
+      "priority": "high",
+      "client_query": "Full ledger of Rajesh Shah's loan account for FY 2025-26 with interest computation and agreed rate; confirm no payments to Sunita Shah or relatives."
+    },
+    {
+      "number": "24",
+      "title": "Deemed profits u/s 32AC/32AD/33AB/33ABA",
+      "status": "filled",
+      "answer": "NIL.",
+      "notes": "No investment allowance claims or special reserve accounts; the asset sold was a vehicle, not plant.",
+      "sources": [
+        "D5"
+      ]
+    },
+    {
+      "number": "25",
+      "title": "Profits chargeable u/s 41",
+      "status": "filled",
+      "answer": "NIL identified.",
+      "notes": "Miscellaneous income Rs. 15,000 — confirm it does not include liabilities written back.",
+      "sources": [
+        "D9 R34"
+      ]
+    },
+    {
+      "number": "26",
+      "title": "Sums referred to in section 43B",
+      "status": "missing",
+      "table": [
+        {
+          "Section": "43B(h)",
+          "Nature": "Om Fabrics (Micro) — unpaid beyond s.15 time at 31-Mar-2026",
+          "Amount": "6,50,000",
+          "Paid by return due date?": "Irrelevant — no due-date relief",
+          "Treatment": "Disallow in AY 2026-27"
+        },
+        {
+          "Section": "43B(a)/(b)",
+          "Nature": "Statutory dues payable (GST/PF/ESI; TDS is not a 43B item)",
+          "Amount": "14,50,000 (combined)",
+          "Paid by return due date?": "Not evidenced",
+          "Treatment": "Break-up and payment dates needed"
+        },
+        {
+          "Section": "43B(c)",
+          "Nature": "Bonus to employees",
+          "Amount": "8,00,000",
+          "Paid by return due date?": "Not evidenced",
+          "Treatment": "Allow if paid by 21-Nov-2026"
+        },
+        {
+          "Section": "43B(e)",
+          "Nature": "Interest on term loan and cash credit (scheduled bank)",
+          "Amount": "33,50,000",
+          "Paid by return due date?": "Monthly NACH debits seen",
+          "Treatment": "Confirm no unpaid interest at year end"
+        }
+      ],
+      "notes": "43B(h) has no return-due-date grace period: it stays disallowed for AY 2026-27 even if paid in April 2026. Same amount appears in clause 22(iii)(b). Opening (pre-existing) 43B liabilities and their payment are not in the papers. Gratuity is handled under 40A(7) in clause 21(e), not here.",
+      "sources": [
+        "D8: MSME Creditors Ageing",
+        "D9 R15, R40, R45, R46",
+        "D2 R13"
+      ],
+      "impact": {
+        "amount": 650000,
+        "direction": "add",
+        "basis": "s.43B(h)",
+        "description": "Om Fabrics unpaid MSME dues"
+      },
+      "priority": "high",
+      "client_query": "Break-up of 'Statutory dues payable' Rs. 14,50,000 at 31-Mar-2026 with payment challans and dates; bonus payment dates; 43B items outstanding at 31-Mar-2025 and when they were paid."
+    },
+    {
+      "number": "27",
+      "title": "GST/CENVAT credit; prior-period items",
+      "status": "judgment",
+      "answer": "(a) GST input tax credit availed (GSTR-3B): Rs. 81,54,120; output GST Rs. 1,25,44,800; net GST paid in cash Rs. 44,08,680. ITC of Rs. 18,000 reversed (blocked credit u/s 17(5), motor car insurance) and debited to P&L. Purchases/expenses accounted net of eligible credit (exclusive method).\n(b) Prior-period expense: Rs. 35,000 — FY 2024-25 audit fee booked in FY 2025-26.",
+      "notes": "(a) GSTR-9 shows total ITC of Rs. 8,16,00,000 — ten times the 3B figure; see reconciliations. (b) Disallowed on the view that the liability belonged to FY 2024-25; allowable this year only if it crystallised this year (e.g. bill first received now) — CA to decide.",
+      "sources": [
+        "D7: GSTR-3B and GSTR-9",
+        "D9 R66, R67"
+      ],
+      "impact": {
+        "amount": 35000,
+        "direction": "add",
+        "basis": "s.37(1) — prior-period",
+        "description": "FY 2024-25 audit fee"
+      },
+      "priority": "medium",
+      "client_query": "Filed GSTR-9/9C and electronic credit ledger summary for FY 2025-26; date of the FY 2024-25 audit fee bill."
+    },
+    {
+      "number": "29A",
+      "title": "Advance forfeited on transfer of capital asset (56(2)(ix))",
+      "status": "filled",
+      "answer": "NIL.",
+      "sources": [
+        "D9: trial_balance.xlsx"
+      ]
+    },
+    {
+      "number": "29B",
+      "title": "Sum/property received without or for inadequate consideration (56(2)(x))",
+      "status": "filled",
+      "answer": "NIL.",
+      "notes": "The Rs. 3,50,000 from Rajesh Shah is a loan (reported in clause 31), not a receipt without consideration.",
+      "sources": [
+        "D8: other_registers.xlsx"
+      ]
+    },
+    {
+      "number": "30",
+      "title": "Hundi borrowing/repayment (69D)",
+      "status": "filled",
+      "answer": "NIL.",
+      "sources": [
+        "D8: other_registers.xlsx"
+      ]
+    },
+    {
+      "number": "30A",
+      "title": "Primary transfer pricing adjustment (92CE)",
+      "status": "not_applicable",
+      "notes": "No international or specified domestic transactions with associated enterprises (client profile).",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "30B",
+      "title": "Interest limitation (94B)",
+      "status": "not_applicable",
+      "notes": "No interest to a non-resident associated enterprise; total interest to any AE far below Rs. 1 crore.",
+      "sources": [
+        "D3: client_profile.txt",
+        "D9: trial_balance.xlsx"
+      ]
+    },
+    {
+      "number": "30C",
+      "title": "Impermissible avoidance arrangement (GAAR)",
+      "status": "filled",
+      "answer": "NIL — no arrangement identified; tax benefit threshold of Rs. 3 crore not approached.",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "31",
+      "title": "Loans/deposits and specified sums — ss.269SS, 269T, 269ST",
+      "status": "filled",
+      "answer": "(a) Loans or deposits taken or accepted:",
+      "table": [
+        {
+          "Lender": "Rajesh Shah",
+          "Address": "To be taken from client records",
+          "PAN": "AKQPS4321F",
+          "Amount taken": "3,50,000",
+          "Date": "05-Sep-2025",
+          "Nature/mode code (Note 1)": "B — cash received (schema CR)",
+          "Squared up during year?": "No",
+          "Max. balance": "3,50,000",
+          "Account payee cheque/bank mode?": "No — CASH"
+        }
+      ],
+      "notes": "Loan of Rs. 3,50,000 accepted in cash — breach of s.269SS (limit Rs. 20,000); penalty exposure u/s 271D equal to the loan, subject to reasonable cause (s.273B). Report the breach plainly — the skill does not compute the penalty. 31(b) specified sums: NIL. 31(ba)–(bd) s.269ST: no receipt/payment of Rs. 2 lakh or more in cash otherwise seen (the director's loan is covered by 269SS, which is carved out of 269ST) — limited to the bank extract; confirm from the cash book. 31(c)–(e) repayments: NIL. Bank term loan and cash credit are excluded from reporting.",
+      "sources": [
+        "D2 R6",
+        "D8: Unsecured Loans Register",
+        "D4: related party note"
+      ],
+      "priority": "high",
+      "client_query": "Rajesh Shah's address for clause 31; any reason the loan was taken in cash (for a reasonable-cause defence)."
+    },
+    {
+      "number": "32",
+      "title": "Brought-forward losses and depreciation; s.79; speculation",
+      "status": "judgment",
+      "table": [
+        {
+          "AY": "2022-23",
+          "Nature": "Business loss (s.72)",
+          "Amount as returned/assessed": "4,20,000",
+          "Available for AY 2026-27": "4,20,000"
+        }
+      ],
+      "notes": "No change in shareholding above 51%, so s.79 does not bite. The loss arose in AY 2022-23, after the 115BAA option (AY 2021-22), so it was already computed under 115BAA rules and can be set off — the 115BAA bar only affects losses from specified deductions of years before the option. Confirm the figure against the AY 2022-23 assessment/ITR. (b)–(e): no unabsorbed depreciation, no speculation or specified-business loss.",
+      "sources": [
+        "D8: Brought Forward Losses"
+      ],
+      "priority": "low",
+      "client_query": "Copy of AY 2022-23 ITR / assessment order showing the business loss carried forward."
+    },
+    {
+      "number": "33",
+      "title": "Deductions under Chapter VI-A / Chapter III",
+      "status": "filled",
+      "answer": "NIL.",
+      "notes": "Under 115BAA only 80JJAA and 80M are available; neither applies (no claim made). 80GGB is not available for the souvenir advertisement.",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "34",
+      "title": "TDS/TCS compliance",
+      "status": "judgment",
+      "table": [
+        {
+          "Section": "192",
+          "Nature": "Salary",
+          "Total amount": "1,34,00,000 (incl. MD 24,00,000)",
+          "TDS per return": "4,85,000 on 1,10,00,000",
+          "Issue": "Form 16s of two employees total 5,63,000 TDS — return looks incomplete"
+        },
+        {
+          "Section": "194A",
+          "Nature": "Interest to director",
+          "Total amount": "5,00,000",
+          "TDS per return": "Nil",
+          "Issue": "Not deducted"
+        },
+        {
+          "Section": "194C",
+          "Nature": "Contractors",
+          "Total amount": "1,90,00,000 per returns",
+          "TDS per return": "3,80,000",
+          "Issue": "TB ledgers not mapped — confirm completeness"
+        },
+        {
+          "Section": "194H",
+          "Nature": "Commission",
+          "Total amount": "9,60,000",
+          "TDS per return": "12,000 on 2,40,000",
+          "Issue": "7,20,000 not covered"
+        },
+        {
+          "Section": "194-I",
+          "Nature": "Rent",
+          "Total amount": "24,00,000",
+          "TDS per return": "1,80,000 on 18,00,000",
+          "Issue": "Q2 missing"
+        },
+        {
+          "Section": "194J",
+          "Nature": "Professional fees + audit fee",
+          "Total amount": "18,70,000",
+          "TDS per return": "Nil",
+          "Issue": "Not deducted / not reported"
+        },
+        {
+          "Section": "194Q",
+          "Nature": "Purchase of goods",
+          "Total amount": "7,37,00,000",
+          "TDS per return": "Nil",
+          "Issue": "Applies (FY 2024-25 turnover > 10 cr) to suppliers above 50 lakh — supplier-wise data needed"
+        }
+      ],
+      "notes": "(b) Q1–Q3 26Q filed by due dates; Q4 shows only the due date (31-May-2026), not an actual filing date. (c) Interest u/s 201(1A) cannot be computed — deduction and payment dates are not available; once the defaults are confirmed the CA must quantify it.",
+      "sources": [
+        "D8: TDS Returns Filed Summary",
+        "D6: Form 16",
+        "D9: trial_balance.xlsx"
+      ],
+      "priority": "high",
+      "client_query": "All 24Q/26Q returns (with acknowledgement dates) and challans for FY 2025-26; supplier-wise purchase register (for 194Q); ledger mapping of the Rs. 1.9 crore contractor payments."
+    },
+    {
+      "number": "35",
+      "title": "Quantitative details",
+      "status": "missing",
+      "notes": "Manufacturing company — 35(b) needs raw-material and finished-goods quantities (opening, purchases/production, consumption, sales, closing, yield, shortage). The stock register exists but was not provided.",
+      "sources": [
+        "D3: client_profile.txt"
+      ],
+      "priority": "medium",
+      "client_query": "Stock register / quantitative reconciliation for principal raw materials and finished goods for FY 2025-26 (units, opening, purchases, consumption, production, sales, closing)."
+    },
+    {
+      "number": "36",
+      "title": "Tax on distributed profits (115-O)",
+      "status": "not_applicable",
+      "notes": "DDT abolished from 1-Apr-2020."
+    },
+    {
+      "number": "36A",
+      "title": "Deemed dividend received u/s 2(22)(e)",
+      "status": "filled",
+      "answer": "NIL.",
+      "notes": "The company borrowed from an individual director, not from a closely-held company, so 2(22)(e) does not arise for the assessee.",
+      "sources": [
+        "D8: other_registers.xlsx"
+      ]
+    },
+    {
+      "number": "36B",
+      "title": "Amount received on buy-back of shares (2(22)(f))",
+      "status": "filled",
+      "answer": "NIL — no buy-back receipts.",
+      "sources": [
+        "D4: financial_statements.pdf"
+      ]
+    },
+    {
+      "number": "37",
+      "title": "Cost audit",
+      "status": "not_applicable",
+      "notes": "Not covered by the Companies (Cost Records and Audit) Rules, 2014 (client profile).",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "38",
+      "title": "Audit under the Central Excise Act",
+      "status": "not_applicable",
+      "notes": "No excisable goods (client profile).",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "39",
+      "title": "Service tax audit (s.72A Finance Act 1994)",
+      "status": "not_applicable",
+      "notes": "Obsolete after GST."
+    },
+    {
+      "number": "40",
+      "title": "Accounting ratios",
+      "status": "judgment",
+      "table": [
+        {
+          "Particulars": "Total turnover (Rs.)",
+          "FY 2025-26": "11,85,40,000",
+          "FY 2024-25": "10,20,00,000"
+        },
+        {
+          "Particulars": "Gross profit / turnover",
+          "FY 2025-26": "39.26%",
+          "FY 2024-25": "38.73%"
+        },
+        {
+          "Particulars": "Net profit (before tax) / turnover",
+          "FY 2025-26": "5.99%",
+          "FY 2024-25": "3.74%"
+        },
+        {
+          "Particulars": "Stock-in-trade / turnover",
+          "FY 2025-26": "12.32%",
+          "FY 2024-25": "12.55%"
+        },
+        {
+          "Particulars": "Material consumed / finished goods produced",
+          "FY 2025-26": "Not computable",
+          "FY 2024-25": "Not computable"
+        }
+      ],
+      "notes": "Gross profit = revenue − cost of materials consumed − purchases of stock-in-trade (as presented in the FS). Net profit uses profit before tax because the FS deferred-tax line looks wrong (see reconciliations). Value of finished goods produced is not in the papers.",
+      "sources": [
+        "D4: financial_statements.pdf"
+      ],
+      "priority": "low",
+      "client_query": "Value of finished goods produced in FY 2025-26 and FY 2024-25 (cost sheet)."
+    },
+    {
+      "number": "41",
+      "title": "Demand raised / refund issued under other tax laws",
+      "status": "filled",
+      "table": [
+        {
+          "Law": "CGST/MGST Act, 2017",
+          "Nature": "Demand — ITC dispute for FY 2022-23 (incl. interest and penalty)",
+          "Date": "18-Feb-2026",
+          "Amount": "8,50,000",
+          "Remarks": "Contested; reply filed; not provided in books"
+        }
+      ],
+      "notes": "Same demand is the contingent liability mentioned in clause 21(g). AIS shows no Income-tax demand/refund.",
+      "sources": [
+        "D4: contingent liabilities note",
+        "D1: AIS Part B"
+      ]
+    },
+    {
+      "number": "42",
+      "title": "Form 61 / 61A / 61B",
+      "status": "not_applicable",
+      "notes": "Not a specified reporting person under Rule 114E; not a reporting financial institution (client profile).",
+      "sources": [
+        "D3: client_profile.txt",
+        "D1: no SFT"
+      ]
+    },
+    {
+      "number": "43",
+      "title": "Country-by-Country Report (s.286)",
+      "status": "not_applicable",
+      "notes": "Standalone Indian company, not part of an international group.",
+      "sources": [
+        "D3: client_profile.txt"
+      ]
+    },
+    {
+      "number": "44",
+      "title": "Break-up of total expenditure by GST registration status of supplier",
+      "status": "missing",
+      "notes": "Mandatory for AY 2026-27. Needs total expenditure split into: registered-composition, registered-regular, exempt/nil-rated supplies, and unregistered suppliers. Supplier-wise GSTIN data was not provided. GSTR-2B and the purchase register can produce it.",
+      "sources": [
+        "D9: trial_balance.xlsx"
+      ],
+      "priority": "medium",
+      "client_query": "Expense and purchase ledgers with supplier GSTIN (or GSTR-2B download) for FY 2025-26, to split expenditure by supplier registration status."
+    }
+  ]
+}

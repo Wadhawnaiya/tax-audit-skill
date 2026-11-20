@@ -34,10 +34,10 @@ Transfer Pricing / International Transactions: None - no associated enterprise t
 
 Documents handed over for this audit:
   1. Trial Balance (trial_balance.xlsx)
-  2. Audited Financial Statements with Notes (financial_statements.docx)
+  2. Audited Financial Statements with Notes (financial_statements.pdf)
   3. Fixed Asset Register (fixed_asset_register.xlsx)
-  4. AIS/TIS export downloaded from Income Tax portal (ais_tis_export.docx)
-  5. Form 16 for 2 sample employees (form16_details.docx)
+  4. AIS/TIS export downloaded from Income Tax portal (ais_tis_export.pdf)
+  5. Form 16 for 2 sample employees (form16_details.pdf)
   6. GST Returns Summary - GSTR-3B and GSTR-9 (gst_returns_summary.xlsx)
   7. Bank Statement Extract - key transactions (bank_statement_extract.xlsx)
   8. Other Registers - unsecured loans, MSME creditors ageing, related party transactions, brought forward
